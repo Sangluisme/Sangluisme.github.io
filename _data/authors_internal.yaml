@@ -2,19 +2,11 @@ danielcremers:
   first_name: Daniel
   last_name: Cremers
   website: https://vision.in.tum.de/members/cremers
-dominikmuhle:
-  first_name: Dominik
-  last_name: Muhle
-  website: https://dominikmuhle.github.io
+lusang:
+  first_name: Lu
+  last_name: Sang
+  website: https://LuSang.github.io
   is_me: true
-lukaskoestler:
-  first_name: Lukas
-  last_name: Koestler
-  website: https://lukaskoestler.com
-nikodemmel:
-  first_name: Nikolaus
-  last_name: Demmel
-  website: https://cvg.cit.tum.de/members/demmeln
 florianbernard:
   first_name: Florian
   last_name: Bernard
@@ -27,3 +19,19 @@ adrianhayler:
   first_name: Adrian
   last_name: Hayler
   website: https://ahayler.github.io
+christianesommer:
+  first_name: Christiane
+  last_name: Sommer
+  website: https://github.com/c-sommer
+bjoernhaefner:
+  first_name: Bjoern
+  last_name: Haefner
+  website: https://cvg.cit.tum.de/members/haefner
+maolingao: 
+  first_name: Maolin
+  last_name: Gao
+  website: https://maolingao.github.io/
+abhisheksaroha:
+  fisrt_name: Abhishek
+  last_name: Saroha
+  website: https://cvg.cit.tum.de/members/saroha

@@ -18,14 +18,14 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-name: Dominik Muhle
-email: dominik.muhle@tum.de
+name: Lu Sang
+email: lu.sang@tum.de
 description: >- # this means to ignore newlines until "baseurl:"
   I am a PhD student at the Computer Vision Group at TU Munich under the guidance of Prof. Cremers. This is an overview over projects I was personally involved in. Check out more awesome work from our group at https://cvg.cit.tum.de/publications
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: dominikmuhle
-github_username:  dominikmuhle
+twitter_username: Lu_Sang__
+github_username:  sangluisme
 
 collections:
   publications:

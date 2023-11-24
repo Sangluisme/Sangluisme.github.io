@@ -1,8 +1,8 @@
-- date: July 2023
-  description: New website layout
-- date: April 2023
-  description: Happy to announce that our paper "Learning Correspondence Uncertainty via Differentiable Nonlinear Least Squares" was accepted to CVPR2023
+- date: Jan 2023
+  description: "High-Quality RGB-D Reconstruction via Multi-View Uncalibrated Photometric Stereo and Gradient-SDF" was accepted to WACV2023
 - date: April 2022
-  description: The Probabilistic Normal Epipolar Constraint for Frame-To-Frame Rotation Optimization under Uncertain Feature Positions to CVPR2022
-- date: April 2022
+  description: "Gradient-SDF: A Semi-Implicit Surface Representation for 3D Reconstruction" was accepted to CVPR2022
+- date: March 2020
+  description: "Inferring Super-Resolution Depth from a Moving Light-Source Enhanced RGB-D Sensor: A Variational Approach" was accepted to WACV2020
+- date: December 2019
   description: Started my PhD at the Computer Vision Group at TUM under the guidance of Prof. Daniel Cremers
