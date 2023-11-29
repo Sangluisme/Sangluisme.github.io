@@ -89,7 +89,7 @@ $$
 A *natural light* source situation is, for example, the light source is the sun, or when the light sources are in a distance. The lighting directions that reach the surface are nearly parallel, then the environment lighting can be well modeled using Spherical Harmonics (SH) functions. The integral part is approximated by the sum of SH basis.
 
 $$
-   \boldsymbol{I}(\boldsymbol{p}(\boldsymbol{x})) \approx \boldsymbol{\pho}(\boldsymbol{x})\dotp{\boldsymbol{l}, \SH(\boldsymbol{n}(\boldsymbol{x}))}\,,
+   \boldsymbol{I}(\boldsymbol{p}(\boldsymbol{x})) \approx \pho(\boldsymbol{x})<\boldsymbol{l}, \boldsymbol{SH}(\boldsymbol{n}(\boldsymbol{x}))>\,,
 $$
 
 where $$\boldsymbol{l} \in \mathbb{R}^4$$ is an 4-dimensional lighting vector for the current view and $$\boldsymbol{SH}(\boldsymbol{n}(\boldsymbol{x}))\in \mathbb{R}^4$$ are the first-order SH basis functions for a fixed $$\boldsymbol{n}(\boldsymbol{x})$$. 
@@ -100,10 +100,10 @@ The model is simply formulated and still can reach relatively high accuracy with
 Apart from the natural light, another commonly encountered scenario is the point light source situation, mainly when focusing on small object reconstruction. The object is usually illuminated by a *point light source*, e.g., a LED light that is close to the object. The lighting can hardly be regarded as a set of parallel lines, thus point light source provides more changes to the object illumination, which is preferred to deal with the ill-posedness of the PS model. One widely used point light source-light model is:
 
 $$
-    \boldsymbol{I}(\boldsymbol{p}(\boldsymbol{x})) = \Psi^s \boldsymbol{\pho}(\boldsymbol{x}) (\frac{\dotp{\boldsymbol{n}^s,\boldsymbol{l}^s}}{||\boldsymbol{l}^s}|| )^{\mu^s} \frac{\max(\dotp{\boldsymbol{n}(\boldsymbol{x}),\boldsymbol{l}^s}, 0)}{||\boldsymbol{l}^s||^3}\,,
+    \boldsymbol{I}(\boldsymbol{p}(\boldsymbol{x})) = \Psi^s \pho(\boldsymbol{x}) (\frac{<\boldsymbol{n}^s,\boldsymbol{l}^s>}{||\boldsymbol{l}^s||})^{\mu^s} \frac{\max(<\boldsymbol{n}(\boldsymbol{x}),\boldsymbol{l}^s>, 0)}{||\boldsymbol{l}^s||^3}\,,
 $$
 
-where $$\Psi^s$$ is the light source intensity, $$\boldsymbol{n}^s$$ is the principal direction of the light source, and $$\boldsymbol{l}^{s}$$ is the vector pointing from the light location to the surface point. The denominator term $$||\boldsymbol{l}^{s}||^3$$ describes the attenuation of the light intensity when it reaches the surface point. $$\mu^s \geq 0$$ is the anisotropy parameter.
+where $$\Psi^s$$ is the light source intensity, $$\boldsymbol{n}^s$$ is the principal direction of the light source, and $$\boldsymbol{l}^{s}$$ is the vector pointing from the light location to the surface point. The denominator term $$\lVert\boldsymbol{l}^{s}\rVert^3$$ describes the attenuation of the light intensity when it reaches the surface point. $$\mu^s \geq 0$$ is the anisotropy parameter.
 
 # Results
 

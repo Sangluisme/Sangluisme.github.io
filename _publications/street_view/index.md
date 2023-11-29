@@ -85,7 +85,12 @@ where $$\text{med}(\{m^i_n\}_n)$$ is the median of the motion labels for object 
 
 # Pose Refinement
 
-![Pose Noisy](./assets/gt_noise_08.gif){width=50%} | ![Pose Refinement](./assets/gt_refined_08.gif){width=50%}
+<table><tr>
+<td> <img src="./assets/gt_noise_08.gif" alt="Drawing" style="width: 250px;"/> </td>
+<td> <img src="./assets/gt_refined_08.gif" alt="Drawing" style="width: 250px;"/> </td>
+</tr></table>
+
+<!-- ![Pose Noisy](./assets/gt_noise_08.gif){width=50%} | ![Pose Refinement](./assets/gt_refined_08.gif){width=50%} -->
 ***Pose refinement results**. Noise pose (left) and refined pose (right) of our results.*
 
 To solve the aforementioned inaccurate camera pose problem, we jointly refine the camera poses with the point light field to account for these potential inaccuracies.
