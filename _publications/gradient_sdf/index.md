@@ -46,12 +46,9 @@ citation: "@inproceedings{Sommer2022,
 # citation: "@{ASDF}"
 ---
 
-<video width="100%" autoplay muted loop>
-  <source src="./assets/header_vid.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
+![Teaser Figure](./assets/teaser.png)
 
-***Visual Odometry on KITTI.** Input image (top left), color-coded dense covariances (bottom left) and resulting trajectory (right). Color coding of the covariances is given by hue (size), orientation (color), and saturation (anisotropy). First sequence uses our supervised covariances, second sequence uses our unsupervised covariances.*
+***Gradient-SDF.** Our Gradient-SDF (*middle*) is a hybrid representation between standard signed distance fields stored in a voxel grid (*left*) and the explicit geometry representation using surfels (*right*): while we inherit the implicit nature of standard SDF voxels, we store gradients per voxel, which is similar to the surface normal property of a surfel. This combines the advantages of implicit representations, such as the possibility for direct SDF tracking, with those of explicit ones, for instance the possibility to perform bundle adjustment.*
 
 # Abstract
 
@@ -59,8 +56,6 @@ We present *Gradient-SDF*, a novel representation for 3D geometry that combines 
 
 
 # Overview
-
-![Teaser Figure](./assets/teaser.png)
 
 a) We propose Gradient-SDF as an implicit geometry representation with explicit features. It exploits first-order Taylor expansion to perform interpolation without accessing several voxels.
 
@@ -77,43 +72,47 @@ we augment the voxel structure by an additional 3D vector, namely a scaled gradi
 
 This proposed data structure is visualized in [teaser figure](assets/teaser.png).
 For a signed distance function, the gradient at a point $\boldsymbol{p}$ is equal to the inwards-pointing surface normal at the closest surface point, and the negative of the outwards-pointing surface normal.
-Thus, similarly to the update in \eqref{eq:sdf_update}, $\boldsymbol{g}_j$ can be updated in a straightforward way:
+Thus, $\boldsymbol{g}_j$ can be updated in a straightforward way:
 $$
-   
     \boldsymbol{g}_j \leftarrow \boldsymbol{g}_j + w(\boldsymbol{v}_j)\boldsymbol{n}(\boldsymbol{v}_j)
 $$
+
 In most applications, normals are already computed from the incoming data (e.g., depth maps) for filtering or rendering, so the computation of $\boldsymbol{n}(\boldsymbol{v}_j)$ does not introduce any computational overhead.
 We normalize the weighted sum $\boldsymbol{g}_j$ to get the actual gradient estimate$$\hat{\boldsymbol{g}}_j$ at$$\boldsymbol{v}_j$.
 
 
 ## Camera Tracking via Gradient-SDF
 
-With our data structure, we can easily approximate both $$d_\boldsymbol{S}$$  and $$\nabla d_\boldsymbol{S}$$ with only one single voxel look-up, using a first-order Taylor expansion:
-\begin{align*}
-    d_\boldsymbol{S}^\text{our}(\boldsymbol{p}) &= \psi_{0} + (\boldsymbol{p}-\boldsymbol{v}_{j^*})^\top\hat{\boldsymbol{g}}_{j^*} \\
-    \nabla d_\boldsymbol{S}^\text{our}(\boldsymbol{p}) &= \hat{\boldsymbol{g}}_{j^*}\,, \\
+With our data structure, we can easily approximate both $$d_\boldsymbol{S}$$ and $$\nabla d_\boldsymbol{S}$$ with only one single voxel look-up, using a first-order Taylor expansion:
+$$
+    d_\boldsymbol{S}^\text{our}(\boldsymbol{p}) = \psi_{0} + (\boldsymbol{p}-\boldsymbol{v}_{j^*})^\top\hat{\boldsymbol{g}}_{j^*} \\
+    \nabla d_\boldsymbol{S}^\text{our}(\boldsymbol{p}) = \hat{\boldsymbol{g}}_{j^*}\,, \\
     j^* = \arg&\min_j \Vert\boldsymbol{p}-\boldsymbol{v}_j\Vert 
-\end{align*}
+$$
+
 This looks very similar to the ICP-based formulation, but in our case $$j^*$$ can be computed without any neighbor search simply by rounding $$\boldsymbol{p}/v_s$$, as we know that the $$\boldsymbol{v}_j$$ are sampled on a regular grid in $$\boldsymbol{R}^3$$.
 
-As a consequence, contiguous memory storage that is so beneficial for volumetric direct SDF tracking approaches is no longer as important, and we can use a hash map instead to compactly store our voxels, while still staying within one geometry representation.
-This allows us to store larger volumes just like in usual SDF tracking, where voxels far from the surface (i.e., with zero weight) are not explicitly stored.
+As a consequence, contiguous memory storage that is so beneficial for volumetric direct SDF tracking approaches is no longer as important, and we can use a hash map instead to compactly store our voxels, while still staying within one geometry representation. This allows us to store larger volumes just like in usual SDF tracking, where voxels far from the surface (i.e., with zero weight) are not explicitly stored.
 
 ## Pose optimization and bundle adjustment
 
 while it is very hard to come up with a meaningful bundle adjustment energy in standard SDF representations, we can exploit projecting voxel center to surface to define points on the surface for which we want to adjust bundles.
 Together with the finding of BAD SLAM that optimization can be limited to the normal direction, we can set up an *implicit photometric BA* cost:
+
 $$
     E(\{\boldsymbol{R}_i, \boldsymbol{t}_i\}, \psi) =
     \sum_{i,j,c}{\nu_{ij}\Phi\bigl(I_{ij}^c- \tfrac{1}{N_j}\sum_k{\nu_{kj}I_{kj}^c}\bigr)}
 $$
+
 where $\nu_{ij}$ denotes the visibility of voxel $\boldsymbol{v}_j$ in frame $i$ ($N_j=\sum_i{\nu_{ij}}$), $c\in\{\text{r},\text{g},\text{b}\}$, and $\Phi$ is a robust cost function.
 $I_{ij}^c$ is given by
+
 $$
     I_{ij}^c(\{\boldsymbol{R}_i, \boldsymbol{t}_i\}, \psi_j) =
-    I_i^c\left( \pi(\boldsymbol{R}_i^\top(\boldsymbol{v}_j-\psi_j\hat{\boldsymbol{g}}_j-\boldsymbol{t}_i))\right)\:,
+    I_i^c\left( \pi(\boldsymbol{R}_i^\top(\boldsymbol{v}_j-\psi_j\hat{\boldsymbol{g}}_j-\boldsymbol{t}_i))\right)
 $$
-with $\pi$ the perspective projection from $\boldsymbolh{R}^3$ to the image domain.
+
+with $\pi$ the perspective projection from $\boldsymbol{R}^3$ to the image domain.
 
 ## Gradient quality on synthetic data
 ![Gradient Quality](./assets/gradient_quality.png)
