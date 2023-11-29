@@ -6,7 +6,7 @@ image: assets/teaser.png
 image_mouseover: assets/sang2020wacv_video.mp4
 
 title: "Gradient-SDF: A Semi-Implicit Surface Representation for 3D Reconstruction"
-venue: CVPR, 2022
+venue: WACV, 2020
 authors:
   - name: lusang
   - name: bjoernhaefner
@@ -16,7 +16,8 @@ affiliations:
   - name: tum
     length: long
 
-description: "A novel representation for 3D geometry that combines the advantages of implict and explicit representations. By storing at every voxel both the signed distance field as well as its gradient vector field, we enhance the capability of implicit representations with approaches originally formulated for explicit surfaces."
+description: "A novel approach towards depth map super-resolution using multi-view uncalibrated photometric stereo is presented. Practically, an LED light source is attached to a commodity RGB-D sensor and is used to capture objects
+from multiple viewpoints with unknown motion. This nonstatic camera-to-object setup is described with a nonconvex variational approach such that no calibration on lighting or camera motion is required due to the formulation of an end-to-end joint optimization problem. Solving the proposed variational model results in high resolution depth, reflectance and camera pose estimates, as we show on challenging synthetic and real-world datasets."
 
 links:
     - name: Project Page
@@ -27,7 +28,9 @@ links:
     - name: Code
       link: https://github.com/Sangluisme/MultiviewLightEnhancedDepthSR
       style: "bi bi-github"
-
+    - name: Video
+      link: publications/inferring/assets/sang2020wacv_video.mp4
+      style: "bi bi-youtube"
 
 citation: "@inproceedings{sang2020wacv,
  title = {Inferring Super-Resolution Depth from a Moving Light-Source Enhanced RGB-D Sensor: A Variational Approach},
