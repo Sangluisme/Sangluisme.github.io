@@ -27,7 +27,7 @@ description: "A novel formulation of physically realistic image model(s) compati
 
 links:
     - name: Project Page
-      link: https://ahayler.github.io/publications/high_rgbd/
+      link: publications/high_rgbd/
     - name: Paper
       link: https://arxiv.org/abs/2210.12202 # change this as soon as the paper is uploaded
       style: "bi bi-file-earmark-richtext"
