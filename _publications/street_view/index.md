@@ -15,7 +15,8 @@ authors:
     affiliations: "1,2"
     equal_contribution: True
   - name: danielcremers
-    affiliations: "1,2,3"
+    affiliations: "1,2"
+    
 affiliations:
   - name: tum
     length: short
@@ -67,7 +68,7 @@ c) During training, we jointly refine camera poses and demonstrate the robustnes
 
 # Moving Object Detection
 
-![Voting scheme](.assets/object_detection.png)
+![Voting Scheme](.assets/object_detection.png=80%x)
 ***Moving object detection**. Comparison with and without voting scheme.*
 
 we employ a voting scheme to reduce inconsistencies in motion prediction that may be caused by incorrect optical field computation or the inconsistencies introduced by ego-motion. In frame $j$ where the object with instance $i$ appears, we compute the motion score $$m_j^i\in \{0,1\}$$, where 1 and 0 denote moving and non-moving objects respectively. Thus, each object has a sequence of motion labels $$\{m^i_n\}_n$$ (out side $n$ means iterate over $$n$$) indicating their motion statuses over frames. Finally, the motion status $M^i$ of an object instance $i$ across the scene is set as
@@ -83,7 +84,8 @@ where $$\text{med}(\{m^i_n\}_n)$$ is the median of the motion labels for object 
 
 
 # Pose Refinement
-![Pose noisy](.assets/gt_noise_08.gif =40%x) ![Pose Refinement](assets/gt_refined_08.gif =40%x)
+
+![Pose Noisy](.assets/gt_noise_08.gif=40%x) ![Pose Refinement](assets/gt_refined_08.gif=40%x)
 ***Pose refinement results**. Noise pose (left) and refined pose (right) of our results.*
 
 To solve the aforementioned inaccurate camera pose problem, we jointly refine the camera poses with the point light field to account for these potential inaccuracies.
@@ -91,14 +93,14 @@ We use the logarithmic representation of the rotation matrix such that the direc
 
 # Self-supervised Training
 
-![Pipeline](.assets/pipeline.png)
+![Pipeline](.assets/pipeline.png=80%x)
 ***Pipeline** The pipeline of our method.*
 
 Denote $$\mathcal{R^{\prime}}$$ as the set of rays that are cast from the camera center to the non-masked pixels only. This allows us to retain the information from static vehicles unlike previous masking-based approaches, which mask out all instances of commonly transient objects. Additionally, we reduce the uncertainty introduced by objects that are in motion, which is a very common feature of outdoor scenes. At inference time, we do not consider the mask and instead shoot rays through the entire pixel grid.
 Thus, the color $$C^{\prime}(\boldsymbol{r}_j)$$ of a ray $$\boldsymbol{r}_j$$ is given by 
 
 $$
-    C^{\prime}(\boldsymbol{r}_j) = F_{\theta_{LF^{\prime}}}(\phi(\boldsymbol{d}_j) \oplus \phi(\boldsymbolt{l}_j), \boldsymbol{R}^{\prime}, \boldsymbol{t}^{\prime})
+    C^{\prime}(\boldsymbol{r}_j) = F_{\theta_{LF^{\prime}}}(\phi(\boldsymbol{d}_j) \oplus \phi(\boldsymbol{l}_j), \boldsymbol{R}^{\prime}, \boldsymbol{t}^{\prime})
 $$
 
 where $$\boldsymbol{d}_j$ and $\boldsymbol{l}_j$$ are the ray direction and the feature vector corresponding to $\boldsymbol{r}_j$, $F_{\theta_{LF^{\prime}}}$ is an MLP.
