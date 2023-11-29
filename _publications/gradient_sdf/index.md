@@ -86,7 +86,10 @@ With our data structure, we can easily approximate both $$d_\boldsymbol{S}$$ and
 
 $$
     d_\boldsymbol{S}^\text{our}(\boldsymbol{p}) = \psi_{0} + (\boldsymbol{p}-\boldsymbol{v}_{j^*})^\top\hat{\boldsymbol{g}}_{j^*} \\
-    \nabla d_\boldsymbol{S}^\text{our}(\boldsymbol{p}) = \hat{\boldsymbol{g}}_{j^*}\,, \\
+    \nabla d_\boldsymbol{S}^\text{our}(\boldsymbol{p}) = \hat{\boldsymbol{g}}_{j^*}
+$$
+
+$$
     j^* = \arg&\min_j \Vert\boldsymbol{p}-\boldsymbol{v}_j\Vert 
 $$
 
@@ -116,4 +119,4 @@ with $$\pi$$ the perspective projection from $$\boldsymbol{R}^3$$ to the image d
 
 ## Gradient quality on synthetic data
 ![Gradient Quality](./assets/gradient_quality.png)
-Quality of gradient estimates. For all voxels closer than x voxels to the surface, the y-value of the curves specify mean, median and 95th percentile of the angular deviation from ground truth gradients in degrees. Solid lines are Gradient-SDF vectors, and dashed lines central finite differences. Our gradients are significantly more accurate than those computed using finite differences, e.g. the mean angular deviation of voxels within 10vs from the surface is nearly twice as big for central differences ($$9.49 ^{\cicle}$$ ) than for our stored gradients ( $$5.07^{\cicle}$$ ).
+Quality of gradient estimates. For all voxels closer than x voxels to the surface, the y-value of the curves specify mean, median and 95th percentile of the angular deviation from ground truth gradients in degrees. Solid lines are Gradient-SDF vectors, and dashed lines central finite differences. Our gradients are significantly more accurate than those computed using finite differences, e.g. the mean angular deviation of voxels within 10vs from the surface is nearly twice as big for central differences ($$9.49 ^{\circ}$$ ) than for our stored gradients ( $$5.07^{\circ}$$ ).
