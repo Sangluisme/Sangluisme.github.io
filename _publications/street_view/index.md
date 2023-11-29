@@ -68,7 +68,7 @@ c) During training, we jointly refine camera poses and demonstrate the robustnes
 
 # Moving Object Detection
 
-![Voting Scheme](.assets/object_detection.png){width=50%}
+![Voting Scheme](.assets/detection2.png)
 ***Moving object detection**. Comparison with and without voting scheme.*
 
 we employ a voting scheme to reduce inconsistencies in motion prediction that may be caused by incorrect optical field computation or the inconsistencies introduced by ego-motion. In frame $j$ where the object with instance $i$ appears, we compute the motion score $$m_j^i\in \{0,1\}$$, where 1 and 0 denote moving and non-moving objects respectively. Thus, each object has a sequence of motion labels $$\{m^i_n\}_n$$ (out side $n$ means iterate over $$n$$) indicating their motion statuses over frames. Finally, the motion status $M^i$ of an object instance $i$ across the scene is set as
@@ -103,7 +103,7 @@ $$
     C^{\prime}(\boldsymbol{r}_j) = F_{\theta_{LF^{\prime}}}(\phi(\boldsymbol{d}_j) \oplus \phi(\boldsymbol{l}_j), \boldsymbol{R}^{\prime}, \boldsymbol{t}^{\prime})
 $$
 
-where $$\boldsymbol{d}_j$ and $\boldsymbol{l}_j$$ are the ray direction and the feature vector corresponding to $\boldsymbol{r}_j$, $F_{\theta_{LF^{\prime}}}$ is an MLP.
+where $$\boldsymbol{d}_j$ and $\boldsymbol{l}_j$$ are the ray direction and the feature vector corresponding to $$\boldsymbol{r}_j$$, $$F_{\theta_{LF^{\prime}}}$$ is an MLP.
 The loss function is
 
 $$
@@ -116,14 +116,14 @@ and the updates to the camera rotation and translation are optimized simultaneou
 
 We evaluate our method on the Waymo open dataset Waymo. We chose 6 scenes from Waymo which we believe are representative of street view scenes with different numbers of static and moving vehicles and pedestrians. We use the RGB images and the corresponding LiDAR point clouds for each scene. We drop out every 10th frame from the dataset for evaluation and train our method on the remaining frames. The RGB images are rescaled by a factor of 0.125 of their original resolutions for training. 
 
-## Novel view synthesis
+# Novel view synthesis
 
 <video width="100%" autoplay muted loop>
   <source src="./assets/ours_recon_07.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 
-## Trajectory extrapolation
+# Trajectory extrapolation
 
 <video width="100%" autoplay muted loop>
   <source src="./assets/ours_07_exp.mp4" type="video/mp4">
