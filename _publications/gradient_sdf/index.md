@@ -10,8 +10,10 @@ venue: CVPR, 2022
 authors:
   - name: christianesommer
     affiliations: "1,2"
+    equal_contribution: True
   - name: lusang
     affiliations: "1,2"
+    equal_contribution: True
   - name: davidschubert
     affiliations: "1,2"
   - name: danielcremers

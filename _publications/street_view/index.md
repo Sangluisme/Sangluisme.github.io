@@ -10,8 +10,10 @@ venue: preprint
 authors:
   - name: mreenavdeka
     affiliations: "1"
+    equal_contribution: True
   - name: lusang
     affiliations: "1,2"
+    equal_contribution: True
   - name: danielcremers
     affiliations: "1,2,3"
 affiliations:
@@ -43,7 +45,7 @@ citation: '@article{muhle2023dnls_covs,
 ---
 
 <video width="100%" autoplay muted loop>
-  <source src="./assets/ours_recon_09.avi" type="video/avi">
+  <source src="./assets/ours_recon_09.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 
@@ -64,6 +66,7 @@ b) We propose a voting scheme for dynamic object detection to achieve consistent
 c) During training, we jointly refine camera poses and demonstrate the robustness of our method to substantial camera pose noise. As a result, image quality is elevated with the increased accuracy of camera poses.
 
 # Moving Object Detection
+
 ![Voting scheme](.assets/object_detection.png)
 ***Moving object detection**. Comparison with and without voting scheme.*
 
@@ -80,13 +83,14 @@ where $$\text{med}(\{m^i_n\}_n)$$ is the median of the motion labels for object 
 
 
 # Pose Refinement
-![Pose noisy](.assets/gt_noise_08.gif) ![Pose Refinement](assets/gt_refined_08.gif)
+![Pose noisy](.assets/gt_noise_08.gif =40%x) ![Pose Refinement](assets/gt_refined_08.gif =40%x)
 ***Pose refinement results**. Noise pose (left) and refined pose (right) of our results.*
 
 To solve the aforementioned inaccurate camera pose problem, we jointly refine the camera poses with the point light field to account for these potential inaccuracies.
 We use the logarithmic representation of the rotation matrix such that the direction and the $l2$ norm of the rotation vector $$\boldsymbol{R} \in \mathbb{R}^{3}$$ represents the axis and magnitude of rotation of the camera in the world-to-camera frame respectively. The translation vector $$\boldsymbol{t} \in \mathbb{R}^{3}$$ represents the location of the camera in the world-to-camera frame.
 
 # Self-supervised Training
+
 ![Pipeline](.assets/pipeline.png)
 ***Pipeline** The pipeline of our method.*
 
@@ -94,7 +98,7 @@ Denote $$\mathcal{R^{\prime}}$$ as the set of rays that are cast from the camera
 Thus, the color $$C^{\prime}(\boldsymbol{r}_j)$$ of a ray $$\boldsymbol{r}_j$$ is given by 
 
 $$
-    C^{\prime}(\boldsymbol{r}_j) = F_{\theta_{LF^{\prime}}}(\phi(\boldsymbol{d}_j) \oplus \phi(\vboldsymbolt{l}_j), \boldsymbol{R}^{\prime}, \boldsymbol{t}^{\prime})
+    C^{\prime}(\boldsymbol{r}_j) = F_{\theta_{LF^{\prime}}}(\phi(\boldsymbol{d}_j) \oplus \phi(\boldsymbolt{l}_j), \boldsymbol{R}^{\prime}, \boldsymbol{t}^{\prime})
 $$
 
 where $$\boldsymbol{d}_j$ and $\boldsymbol{l}_j$$ are the ray direction and the feature vector corresponding to $\boldsymbol{r}_j$, $F_{\theta_{LF^{\prime}}}$ is an MLP.
@@ -111,4 +115,11 @@ and the updates to the camera rotation and translation are optimized simultaneou
 We evaluate our method on the Waymo open dataset Waymo. We chose 6 scenes from Waymo which we believe are representative of street view scenes with different numbers of static and moving vehicles and pedestrians. We use the RGB images and the corresponding LiDAR point clouds for each scene. We drop out every 10th frame from the dataset for evaluation and train our method on the remaining frames. The RGB images are rescaled by a factor of 0.125 of their original resolutions for training. 
 
 ## Novel view synthesis
-![Novel view synthesis](.assets/ours_recon_07.avi)
+
+![Novel view synthesis](.assets/ours_recon_07.mp4)
+
+## Trajectory extrapolation
+
+![Trajectory extrapolation](.assets/ours_07_exp.mp4)
+
+Our method uses point clouds as geometry priors. To prove that the network learns the actual scene geometry structure, instead of only learning the color appearance along the trained camera odometry, we extrapolate the trajectory to drift off from the training dataset. We then render views from this new trajectory which are far away from the training views. This differs from the novel view synthesis results presented in the previous paragraph where the network rendered views that were interpolated on the training trajectory.
