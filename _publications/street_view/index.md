@@ -58,7 +58,7 @@ Synthesizing novel views for urban environments is crucial for tasks like autono
 
 # Overview
 
-![Teaser Figure](./assets/teaser.png)
+![Teaser Figure](/assets/teaser.png)
 
 a) We incorporate novel view synthesis with dynamic object erasing which removes artifacts created by inconsistent frames in urban scenes. 
 
@@ -68,7 +68,7 @@ c) During training, we jointly refine camera poses and demonstrate the robustnes
 
 # Moving Object Detection
 
-![Voting Scheme](.assets/detection2.png)
+![Voting Scheme](assets/detection2.png)
 ***Moving object detection**. Comparison with and without voting scheme.*
 
 we employ a voting scheme to reduce inconsistencies in motion prediction that may be caused by incorrect optical field computation or the inconsistencies introduced by ego-motion. In frame $j$ where the object with instance $i$ appears, we compute the motion score $$m_j^i\in \{0,1\}$$, where 1 and 0 denote moving and non-moving objects respectively. Thus, each object has a sequence of motion labels $$\{m^i_n\}_n$$ (out side $n$ means iterate over $$n$$) indicating their motion statuses over frames. Finally, the motion status $M^i$ of an object instance $i$ across the scene is set as
@@ -85,7 +85,9 @@ where $$\text{med}(\{m^i_n\}_n)$$ is the median of the motion labels for object 
 
 # Pose Refinement
 
-![Pose Noisy](.assets/gt_noise_08.gif){width=50%} ![Pose Refinement](assets/gt_refined_08.gif){width=50%}
+A | B
+- | -
+![Pose Noisy](.assets/gt_noise_08.gif) ![Pose Refinement](assets/gt_refined_08.gif)
 ***Pose refinement results**. Noise pose (left) and refined pose (right) of our results.*
 
 To solve the aforementioned inaccurate camera pose problem, we jointly refine the camera poses with the point light field to account for these potential inaccuracies.
@@ -93,7 +95,7 @@ We use the logarithmic representation of the rotation matrix such that the direc
 
 # Self-supervised Training
 
-![Pipeline](.assets/pipeline.png){width=50%}
+![Pipeline](assets/pipeline.png)
 ***Pipeline** The pipeline of our method.*
 
 Denote $$\mathcal{R^{\prime}}$$ as the set of rays that are cast from the camera center to the non-masked pixels only. This allows us to retain the information from static vehicles unlike previous masking-based approaches, which mask out all instances of commonly transient objects. Additionally, we reduce the uncertainty introduced by objects that are in motion, which is a very common feature of outdoor scenes. At inference time, we do not consider the mask and instead shoot rays through the entire pixel grid.
