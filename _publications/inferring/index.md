@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: publications/inferring/
-date: 2022_05_29 # determines sorting just take the date of the first publication as YYYY_MM_DD
+date: 2020_01_29 # determines sorting just take the date of the first publication as YYYY_MM_DD
 image: assets/teaser.png
 image_mouseover: assets/sang2020wacv_video.mp4
 
