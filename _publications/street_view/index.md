@@ -3,7 +3,7 @@ layout: page
 permalink: publications/street_view/
 date: 2023_11_29 # determines sorting just take the date of the first publication as YYYY_MM_DD
 image: assets/teaser.png
-image_mouseover: assets/header_vid.mp4
+image_mouseover: assets/ours_recon_09.mp4
 
 title: "Erasing the Ephemeral: Joint Camera Refinement and Transient Object Removal for Street View Synthesis"
 venue: preprint
@@ -16,7 +16,7 @@ authors:
     equal_contribution: True
   - name: danielcremers
     affiliations: "1,2"
-    
+
 affiliations:
   - name: tum
     length: short
@@ -68,7 +68,7 @@ c) During training, we jointly refine camera poses and demonstrate the robustnes
 
 # Moving Object Detection
 
-![Voting Scheme](.assets/object_detection.png=80%x)
+![Voting Scheme](.assets/object_detection.png){width=50%}
 ***Moving object detection**. Comparison with and without voting scheme.*
 
 we employ a voting scheme to reduce inconsistencies in motion prediction that may be caused by incorrect optical field computation or the inconsistencies introduced by ego-motion. In frame $j$ where the object with instance $i$ appears, we compute the motion score $$m_j^i\in \{0,1\}$$, where 1 and 0 denote moving and non-moving objects respectively. Thus, each object has a sequence of motion labels $$\{m^i_n\}_n$$ (out side $n$ means iterate over $$n$$) indicating their motion statuses over frames. Finally, the motion status $M^i$ of an object instance $i$ across the scene is set as
@@ -85,7 +85,7 @@ where $$\text{med}(\{m^i_n\}_n)$$ is the median of the motion labels for object 
 
 # Pose Refinement
 
-![Pose Noisy](.assets/gt_noise_08.gif=40%x) ![Pose Refinement](assets/gt_refined_08.gif=40%x)
+![Pose Noisy](.assets/gt_noise_08.gif){width=50%} ![Pose Refinement](assets/gt_refined_08.gif){width=50%}
 ***Pose refinement results**. Noise pose (left) and refined pose (right) of our results.*
 
 To solve the aforementioned inaccurate camera pose problem, we jointly refine the camera poses with the point light field to account for these potential inaccuracies.
@@ -93,7 +93,7 @@ We use the logarithmic representation of the rotation matrix such that the direc
 
 # Self-supervised Training
 
-![Pipeline](.assets/pipeline.png=80%x)
+![Pipeline](.assets/pipeline.png){width=50%}
 ***Pipeline** The pipeline of our method.*
 
 Denote $$\mathcal{R^{\prime}}$$ as the set of rays that are cast from the camera center to the non-masked pixels only. This allows us to retain the information from static vehicles unlike previous masking-based approaches, which mask out all instances of commonly transient objects. Additionally, we reduce the uncertainty introduced by objects that are in motion, which is a very common feature of outdoor scenes. At inference time, we do not consider the mask and instead shoot rays through the entire pixel grid.
@@ -118,10 +118,16 @@ We evaluate our method on the Waymo open dataset Waymo. We chose 6 scenes from W
 
 ## Novel view synthesis
 
-![Novel view synthesis](.assets/ours_recon_07.mp4)
+<video width="100%" autoplay muted loop>
+  <source src="./assets/ours_recon_07.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
 
 ## Trajectory extrapolation
 
-![Trajectory extrapolation](.assets/ours_07_exp.mp4)
+<video width="100%" autoplay muted loop>
+  <source src="./assets/ours_07_exp.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
 
 Our method uses point clouds as geometry priors. To prove that the network learns the actual scene geometry structure, instead of only learning the color appearance along the trained camera odometry, we extrapolate the trajectory to drift off from the training dataset. We then render views from this new trajectory which are far away from the training views. This differs from the novel view synthesis results presented in the previous paragraph where the network rendered views that were interpolated on the training trajectory.
