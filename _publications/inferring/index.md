@@ -5,7 +5,7 @@ date: 2020_01_29 # determines sorting just take the date of the first publicatio
 image: assets/teaser.png
 image_mouseover: assets/sang2020wacv_video.mp4
 
-title: "Gradient-SDF: A Semi-Implicit Surface Representation for 3D Reconstruction"
+title: "Inferring Super-Resolution Depth from a Moving Light-Source Enhanced RGB-D Sensor: A Variational Approach"
 venue: WACV, 2020
 authors:
   - name: lusang
