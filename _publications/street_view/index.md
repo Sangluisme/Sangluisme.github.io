@@ -6,7 +6,7 @@ image: assets/teaser.png
 image_mouseover: assets/ours_recon_09.mp4
 
 title: "Erasing the Ephemeral: Joint Camera Refinement and Transient Object Removal for Street View Synthesis"
-venue: preprint
+venue: ArXiv, 2023
 authors:
   - name: mreenavdeka
     affiliations: "1"
@@ -85,9 +85,7 @@ where $$\text{med}(\{m^i_n\}_n)$$ is the median of the motion labels for object 
 
 # Pose Refinement
 
-A | B
-- | -
-![Pose Noisy](./assets/gt_noise_08.gif) | ![Pose Refinement](./assets/gt_refined_08.gif)
+![Pose Noisy](./assets/gt_noise_08.gif){width=50%} | ![Pose Refinement](./assets/gt_refined_08.gif){width=50%}
 ***Pose refinement results**. Noise pose (left) and refined pose (right) of our results.*
 
 To solve the aforementioned inaccurate camera pose problem, we jointly refine the camera poses with the point light field to account for these potential inaccuracies.

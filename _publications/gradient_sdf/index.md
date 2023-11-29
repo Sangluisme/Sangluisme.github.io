@@ -66,7 +66,7 @@ b) We prove that our stored Gradient-SDF vectors are significantly more accurate
 c) We show theoretically and experimentally how Gradient-SDF can be used in a depth-based tracking and mapping system, where efficient storage in a hash map is combined with direct SDF tracking.
 
 # Camera Tracking Using Gradient-SDF
-![Reconstruction](assets/tracking_results.png)
+![Reconstruction](./assets/tracking_results.png)
 ***Reconstructed point cloud***
 
 we augment the voxel structure by an additional 3D vector, namely a scaled gradient $$\boldsymbol{g}_j$$ of the SDF at that point.
