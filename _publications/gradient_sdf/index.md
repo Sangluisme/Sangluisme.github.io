@@ -86,11 +86,8 @@ With our data structure, we can easily approximate both $$d_\boldsymbol{S}$$ and
 
 $$
     d_\boldsymbol{S}^\text{our}(\boldsymbol{p}) = \psi_{0} + (\boldsymbol{p}-\boldsymbol{v}_{j^*})^\top\hat{\boldsymbol{g}}_{j^*} \\
-    \nabla d_\boldsymbol{S}^\text{our}(\boldsymbol{p}) = \hat{\boldsymbol{g}}_{j^*}
-$$
-
-$$
-    j^* = \arg&\min_j \Vert\boldsymbol{p}-\boldsymbol{v}_j\Vert 
+    \nabla d_\boldsymbol{S}^\text{our}(\boldsymbol{p}) = \hat{\boldsymbol{g}}_{j^*} \\
+    j^* = \text{argmin}_j ||\boldsymbol{p}-\boldsymbol{v}_j||
 $$
 
 This looks very similar to the ICP-based formulation, but in our case $$j^*$$ can be computed without any neighbor search simply by rounding $$\boldsymbol{p}/v_s$$, as we know that the $$\boldsymbol{v}_j$$ are sampled on a regular grid in $$\boldsymbol{R}^3$$.
