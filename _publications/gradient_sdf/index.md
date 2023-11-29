@@ -8,9 +8,9 @@ image_mouseover: assets/header_vid.mp4
 title: "Gradient-SDF: A Semi-Implicit Surface Representation for 3D Reconstruction"
 venue: CVPR, 2022
 authors:
-  - name: lusang
-    affiliations: "1,2"
   - name: christianesommer
+    affiliations: "1,2"
+  - name: lusang
     affiliations: "1,2"
   - name: davidschubert
     affiliations: "1,2"
@@ -67,7 +67,6 @@ c) We show theoretically and experimentally how Gradient-SDF can be used in a de
 ![Dense Covariances](assets/tracking_results.png)
 ***Reconstructed point cloud***
 
-
 we augment the voxel structure by an additional 3D vector, namely a scaled gradient $$\boldsymbol{g}_j$$ of the SDF at that point.
 
 This proposed data structure is visualized in [teaser figure](assets/teaser.png).
@@ -78,12 +77,13 @@ $$
 $$
 
 In most applications, normals are already computed from the incoming data (e.g., depth maps) for filtering or rendering, so the computation of $\boldsymbol{n}(\boldsymbol{v}_j)$ does not introduce any computational overhead.
-We normalize the weighted sum $\boldsymbol{g}_j$ to get the actual gradient estimate$$\hat{\boldsymbol{g}}_j$ at$$\boldsymbol{v}_j$.
+We normalize the weighted sum $\boldsymbol{g}_j$ to get the actual gradient estimate $$\hat{\boldsymbol{g}}_j$$ at $$\boldsymbol{v}_j$$.
 
 
 ## Camera Tracking via Gradient-SDF
 
 With our data structure, we can easily approximate both $$d_\boldsymbol{S}$$ and $$\nabla d_\boldsymbol{S}$$ with only one single voxel look-up, using a first-order Taylor expansion:
+
 $$
     d_\boldsymbol{S}^\text{our}(\boldsymbol{p}) = \psi_{0} + (\boldsymbol{p}-\boldsymbol{v}_{j^*})^\top\hat{\boldsymbol{g}}_{j^*} \\
     \nabla d_\boldsymbol{S}^\text{our}(\boldsymbol{p}) = \hat{\boldsymbol{g}}_{j^*}\,, \\
@@ -104,16 +104,16 @@ $$
     \sum_{i,j,c}{\nu_{ij}\Phi\bigl(I_{ij}^c- \tfrac{1}{N_j}\sum_k{\nu_{kj}I_{kj}^c}\bigr)}
 $$
 
-where $\nu_{ij}$ denotes the visibility of voxel $\boldsymbol{v}_j$ in frame $i$ ($N_j=\sum_i{\nu_{ij}}$), $c\in\{\text{r},\text{g},\text{b}\}$, and $\Phi$ is a robust cost function.
-$I_{ij}^c$ is given by
+where $$\nu_{ij}$$ denotes the visibility of voxel $$\boldsymbol{v}_j$$ in frame i ($$N_j=\sum_i{\nu_{ij}}$$), $$c\in\{\text{r},\text{g},\text{b}\}$$, and $$\Phi$$ is a robust cost function.
+$$I_{ij}^c$$ is given by
 
 $$
     I_{ij}^c(\{\boldsymbol{R}_i, \boldsymbol{t}_i\}, \psi_j) =
     I_i^c\left( \pi(\boldsymbol{R}_i^\top(\boldsymbol{v}_j-\psi_j\hat{\boldsymbol{g}}_j-\boldsymbol{t}_i))\right)
 $$
 
-with $\pi$ the perspective projection from $\boldsymbol{R}^3$ to the image domain.
+with $$\pi$$ the perspective projection from $$\boldsymbol{R}^3$$ to the image domain.
 
 ## Gradient quality on synthetic data
 ![Gradient Quality](./assets/gradient_quality.png)
-Quality of gradient estimates. For all voxels closer than x voxels to the surface, the y-value of the curves specify mean, median and 95th percentile of the angular deviation from ground truth gradients in degrees. Solid lines are Gradient-SDF vectors, and dashed lines central finite differences. Our gradients are significantly more accurate than those computed using finite differences, e.g. the mean angular deviation of voxels within 10vs from the surface is nearly twice as big for central differences (9.49&deg) than for our stored gradients (5.07&deg).
+Quality of gradient estimates. For all voxels closer than x voxels to the surface, the y-value of the curves specify mean, median and 95th percentile of the angular deviation from ground truth gradients in degrees. Solid lines are Gradient-SDF vectors, and dashed lines central finite differences. Our gradients are significantly more accurate than those computed using finite differences, e.g. the mean angular deviation of voxels within 10vs from the surface is nearly twice as big for central differences ($$9.49 ^{\cicle}$$ ) than for our stored gradients ( $$5.07^{\cicle}$$ ).
