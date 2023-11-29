@@ -10,10 +10,10 @@ venue: CVPR, 2022
 authors:
   - name: lusang
     affiliations: "1,2"
-  - name: lukaskoestler
+  - name: christianesommer
     affiliations: "1,2"
-  - name: krishnajatavallabhula
-    affiliations: "4"
+  - name: davidschubert
+    affiliations: "1,2"
   - name: danielcremers
     affiliations: "1,2,3"
 affiliations:
@@ -21,25 +21,19 @@ affiliations:
     length: short
   - name: mcml
     length: long
-  - name: oxford
-    length: long
-  - name: mit
-    length: short
 
-description: "A differentiable nonlinear least squares framework to account for uncertainty in relative pose estimation from feature correspondences regardless of the feature extraction algorithm of choice."
+description: "A novel representation for 3D geometry that combines the advantages of implict and explicit representations. By storing at every voxel both the signed distance field as well as its gradient vector field, we enhance the capability of implicit representations with approaches originally formulated for explicit surfaces."
 
 links:
     - name: Project Page
       link: publications/gradient_sdf/
     - name: Paper
-      link: https://arxiv.org/abs/2305.09527
+      link: https://arxiv.org/abs/2111.13652
       style: "bi bi-file-earmark-richtext"
     - name: Code
-      link: https://github.com/DominikMuhle/dnls_covs
+      link: https://github.com/c-sommer/gradient-sdf
       style: "bi bi-github"
-    - name: Video
-      link: https://www.youtube.com/watch?v=_wDUresP6v8&t=23s
-      style: "bi bi-youtube"
+
 
 citation: "@inproceedings{Sommer2022,
  author = {C Sommer and L Sang and D Schubert and D Cremers},
@@ -49,8 +43,6 @@ citation: "@inproceedings{Sommer2022,
  url = {https://arxiv.org/abs/2111.13652},
 }"
 
-
-acknowledgements: 'This work was supported by the ERC Advanced Grant SIMULACRON, by the Munich Center for Machine Learning and by the EPSRC Programme Grant VisualAI EP/T028572/1.'
 # citation: "@{ASDF}"
 ---
 
@@ -63,75 +55,66 @@ Your browser does not support the video tag.
 
 # Abstract
 
-We propose a differentiable nonlinear least squares framework to account for uncertainty in relative pose estimation from feature correspondences. Specifically, we introduce a symmetric version of the probabilistic normal epipolar constraint, and an approach to estimate the covariance of feature positions by differentiating through the camera pose estimation procedure. We evaluate our approach on synthetic, as well as the KITTI and EuRoC real-world datasets. On the synthetic dataset, we confirm that our learned covariances accurately approximate the true noise distribution. In real world experiments, we find that our approach consistently outperforms state-of-the-art non-probabilistic and probabilistic approaches, regardless of the feature extraction algorithm of choice.
+We present *Gradient-SDF*, a novel representation for 3D geometry that combines the advantages of implict and explicit representations. By storing at every voxel both the signed distance field as well as its gradient vector field, we enhance the capability of implicit representations with approaches originally formulated for explicit surfaces. As concrete examples, we show that (1) the Gradient-SDF allows us to perform direct SDF tracking from depth images, using efficient storage schemes like hash maps, and that (2) the Gradient-SDF representation enables us to perform photometric bundle adjustment directly in a voxel representation (without transforming into a point cloud or mesh), naturally a fully implicit optimization of geometry and camera poses and easy geometry upsampling. Experimental results confirm that this leads to significantly sharper reconstructions. Since the overall SDF voxel structure is still respected, the proposed Gradient-SDF is equally suited for (GPU) parallelization as related approaches.
+
 
 # Overview
 
 ![Teaser Figure](./assets/teaser.png)
 
-a) We propose a symetric extension of the [Probabiltistic Normal Epipolar Constraint](https://arxiv.org/abs/2204.02256) (PNEC) to more accurately model the geometry of relative pose estimation with uncertain feature positions.
+a) We propose Gradient-SDF as an implicit geometry representation with explicit features. It exploits first-order Taylor expansion to perform interpolation without accessing several voxels.
 
-b) We propose a learning strategy to minimize the relative pose error by learning feature position uncertainty through differentiable nonlinear least squares (DNLS). This learning strategy can be combined with any feature extraction algorithm. We evaluate our learning framework with synthetic experiments and on real-world data in a visual odometry setting.  We show that our framework is able to generalize to different feature extraction algorithms such as SuperPoint and feature tracking approaches.
+b) We prove that our stored Gradient-SDF vectors are significantly more accurate than gradients obtained by standard finite difference schemes.
 
-# Learning Uncertainty from Poses
-![Dense Covariances](assets/pred_dense.png)
-***Dense Uncertainty Prediction**. Color-coded for visualization.*
+c) We show theoretically and experimentally how Gradient-SDF can be used in a depth-based tracking and mapping system, where efficient storage in a hash map is combined with direct SDF tracking.
 
-We want to estimate keypoint positional uncertainties $$\boldsymbol{\Sigma}_{2\text{D}}, \boldsymbol{\Sigma}^\prime_{2\text{D}}$$ in the images such that minimizing the PNEC energy function
+# Camera Tracking Using Gradient-SDF
+![Dense Covariances](assets/tracking_results.png)
+***Reconstructed point cloud***
 
+
+we augment the voxel structure by an additional 3D vector, namely a scaled gradient $$\boldsymbol{g}_j$$ of the SDF at that point.
+
+This proposed data structure is visualized in [teaser figure](assets/teaser.png).
+For a signed distance function, the gradient at a point $\boldsymbol{p}$ is equal to the inwards-pointing surface normal at the closest surface point, and the negative of the outwards-pointing surface normal.
+Thus, similarly to the update in \eqref{eq:sdf_update}, $\boldsymbol{g}_j$ can be updated in a straightforward way:
 $$
-    \boldsymbol{R} = \text{arg min}_{\boldsymbol{R}} E(\boldsymbol{R}, \boldsymbol{t})
+   
+    \boldsymbol{g}_j \leftarrow \boldsymbol{g}_j + w(\boldsymbol{v}_j)\boldsymbol{n}(\boldsymbol{v}_j)
 $$
+In most applications, normals are already computed from the incoming data (e.g., depth maps) for filtering or rendering, so the computation of $\boldsymbol{n}(\boldsymbol{v}_j)$ does not introduce any computational overhead.
+We normalize the weighted sum $\boldsymbol{g}_j$ to get the actual gradient estimate$$\hat{\boldsymbol{g}}_j$ at$$\boldsymbol{v}_j$.
 
+
+## Camera Tracking via Gradient-SDF
+
+With our data structure, we can easily approximate both $$d_\boldsymbol{S}$$  and $$\nabla d_\boldsymbol{S}$$ with only one single voxel look-up, using a first-order Taylor expansion:
+\begin{align*}
+    d_\boldsymbol{S}^\text{our}(\boldsymbol{p}) &= \psi_{0} + (\boldsymbol{p}-\boldsymbol{v}_{j^*})^\top\hat{\boldsymbol{g}}_{j^*} \\
+    \nabla d_\boldsymbol{S}^\text{our}(\boldsymbol{p}) &= \hat{\boldsymbol{g}}_{j^*}\,, \\
+    j^* = \arg&\min_j \Vert\boldsymbol{p}-\boldsymbol{v}_j\Vert 
+\end{align*}
+This looks very similar to the ICP-based formulation, but in our case $$j^*$$ can be computed without any neighbor search simply by rounding $$\boldsymbol{p}/v_s$$, as we know that the $$\boldsymbol{v}_j$$ are sampled on a regular grid in $$\boldsymbol{R}^3$$.
+
+As a consequence, contiguous memory storage that is so beneficial for volumetric direct SDF tracking approaches is no longer as important, and we can use a hash map instead to compactly store our voxels, while still staying within one geometry representation.
+This allows us to store larger volumes just like in usual SDF tracking, where voxels far from the surface (i.e., with zero weight) are not explicitly stored.
+
+## Pose optimization and bundle adjustment
+
+while it is very hard to come up with a meaningful bundle adjustment energy in standard SDF representations, we can exploit projecting voxel center to surface to define points on the surface for which we want to adjust bundles.
+Together with the finding of BAD SLAM that optimization can be limited to the normal direction, we can set up an *implicit photometric BA* cost:
 $$
-    E(\boldsymbol{R}, \boldsymbol{t}) = \sum_i \frac{e_i^2}{\sigma_i^2} = \sum_i \frac{| \boldsymbol{t}^\top (\boldsymbol{f}_i \times \boldsymbol{R} \boldsymbol{f}^\prime_i) |^2}{\boldsymbol{t}^\top (\hat{(\boldsymbol{R} \boldsymbol{f}^\prime_i)} \boldsymbol{\Sigma}_i \hat{(\boldsymbol{R} \boldsymbol{f}^\prime_i)}{}^\top + \hat{\boldsymbol{f}_i} \boldsymbol{R} \boldsymbol{\Sigma}^\prime_i \boldsymbol{R}^\top \hat{\boldsymbol{f}_i}{}^\top) \boldsymbol{t}}
+    E(\{\boldsymbol{R}_i, \boldsymbol{t}_i\}, \psi) =
+    \sum_{i,j,c}{\nu_{ij}\Phi\bigl(I_{ij}^c- \tfrac{1}{N_j}\sum_k{\nu_{kj}I_{kj}^c}\bigr)}
 $$
-
-leads to a minimal positional error (see paper for more details). Using implicit differentiation we can get the gradient of the pose error $$=e_{\text{rot}}$$ with regard to the image uncertainties as
-
+where $\nu_{ij}$ denotes the visibility of voxel $\boldsymbol{v}_j$ in frame $i$ ($N_j=\sum_i{\nu_{ij}}$), $c\in\{\text{r},\text{g},\text{b}\}$, and $\Phi$ is a robust cost function.
+$I_{ij}^c$ is given by
 $$
-    \frac{d \mathcal{L}}{d \boldsymbol{\Sigma}_{2\text{D}}} = - \frac{\partial^2 E_s}{\partial \boldsymbol{\Sigma}_{2\text{D}} \partial \boldsymbol{R}{}^\top} \left(\frac{\partial^2 E_s}{\partial \boldsymbol{R} \partial \boldsymbol{R}{}^\top} \right)^{-1} \frac{e_{\text{rot}}}{\partial \boldsymbol{R}}
+    I_{ij}^c(\{\boldsymbol{R}_i, \boldsymbol{t}_i\}, \psi_j) =
+    I_i^c\left( \pi(\boldsymbol{R}_i^\top(\boldsymbol{v}_j-\psi_j\hat{\boldsymbol{g}}_j-\boldsymbol{t}_i))\right)\:,
 $$
+with $\pi$ the perspective projection from $\boldsymbolh{R}^3$ to the image domain.
 
-allowing us to differentiate through to optimization and training an encoder-decoder network to predict dense uncertainty estimates for the whole image.
-![Overview Figure](./assets/architecture.png)
-***Training Scheme Overview.***
-
-## Supervised Learning
-
-Given a dataset with accurate pose information we can train the encoder-decoder by comparing the estimated pose to the ground truth pose giving us following loss function:
-
-$$e_{\text{rot}} = \angle  \tilde{\boldsymbol{R}}{}^\top \boldsymbol{R}$$
-
-## Self-Supervised Learning
-
-For datasets without accurate ground truth pose information our framework allows to train the encoder-decoder in a self-supervised manner by exploiting the cycle consistency between a tuple of images such that the pose error is given by:
-
-$$e_{\text{rot}}=\angle \prod_{(i,j) \in \mathcal{P}} \boldsymbol{R}_{ij}$$
-
-# Results
-We evaluate our framework using a combination of synthetic and real-world experiments. For the synthetic data, we investigate the ability of the gradient to learn the underlying noise distribution correctly by overfitting covariance estimates directly. We also investigate if better noise estimation leads to a reduces rotational error.
-
-On real-world data, we use the gradient to train a network to predicts the noise distributions from images for different keypoint detectors. We train a network, both in a supervised and self-supervised manner, for SuperPoint and Basalt KLT-Tracks, since they follow different paradigms. We evaluate the performance of the learned covariances in a visual odometry setting on the popular KITTI odometry dataset. Results for the EuRoC dataset can be found in the paper.
-
-## Synthetic Experiments
-![Image Covariances](./assets/target_covs.png)
-
-***Synthetic Experiment.** Estimated covariances (red) compared to ground truth covariances (green)*.
-
-In the simulated experiments we overfit covariance estimates for a single relative pose estimation problem. For this, we create random relative pose estimation problem consisting of two camera-frames observing points in 3D space. The points are projected into camera frames using a pinhole camera model. We fix the noise in the first frame to be small, isotropic, and homogeneous in nature. Each projected point in the second frame is assigned a random gaussian noise distribution. From this $128\,000$ random problems are sampled with random relative poses. We learn the noise distributions by initializing all covariance estimates as scaled identity matrices, solving the relative pose estimation problem using the PNEC and updating the parameters of the distribution using the gradient directly. The figure shows, that with implicit differentiation, our framework can learn the correct distributions from noisy data by following the gradient that minimizes the rotational error.
-
-## Real World
-![Trajectory](./assets/trajectory_paper.png)
-
-***Trajetory.** KITTI seq. 00. Visualization uses the ground truth translation scale as we do 2-view pose estimation.*
-
-We evaluate our method on the KITTI and EuRoC (see paper). For the supervised training of KITTI we choose sequences 00-07 as the training set and 08-10 as the test set. For the self-supervised training we also only train on sequences 00-07. We use a smaller UNet architecture as our network to predict the covariances for the whole image.
-
-![Superpoint](./assets/table_superpoint.png)
-***Visual Odometry Results.** Rotation and translation error using SuperPoint keypoints*
-
-![KLT](./assets/table_klt.png)
-***Visual Odometry Results.** Rotation and translation error using KLT keypoints*
-
-The tables show the average results on the test set over 5 runs for SuperPoint and KLT tracks on KITTI, respectively. We show additional results in the supplementary material. Our methods consistently perform the best over all sequences, with the self-supervised being on par with our supervised training. Compared to its non-probabilistic counterpart NEC-LS, our method improves RPE<sub>*1*</sub> by 7% and 13% and the RPE<sub>*n*</sub> by 37% and 23% for different keypoint detectors on unseen data. Furthermore, it also improves upon methods that use weighting, like weighted NEC-LS and the non-learned covariances for the PNEC, significantly.
+## Gradient quality on synthetic data
+![Gradient Quality](./assets/gradient_quality.png)
+Quality of gradient estimates. For all voxels closer than x voxels to the surface, the y-value of the curves specify mean, median and 95th percentile of the angular deviation from ground truth gradients in degrees. Solid lines are Gradient-SDF vectors, and dashed lines central finite differences. Our gradients are significantly more accurate than those computed using finite differences, e.g. the mean angular deviation of voxels within 10vs from the surface is nearly twice as big for central differences (9.49&deg) than for our stored gradients (5.07&deg).
