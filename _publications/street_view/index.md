@@ -29,7 +29,7 @@ links:
     - name: Project Page
       link: publications/street_view/
     - name: Paper
-      link: https://arxiv.org/abs/2305.09527
+      link: http://arxiv.org/abs/2311.17634
       style: "bi bi-file-earmark-richtext"
     - name: Code
       link: coming soon...
