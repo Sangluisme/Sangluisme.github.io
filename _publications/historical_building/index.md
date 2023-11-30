@@ -5,7 +5,7 @@ date: 2023_11_27 # determines sorting just take the date of the first publicatio
 image: assets/teaser.png
 image_mouseover: assets/historical.mp4
 
-title: "Coloring the Past: Neural Historical Buildings Reconstruction \\ from Archival Photography"
+title: "Coloring the Past: Neural Historical Buildings Reconstruction from Archival Photography"
 venue: Arxiv, 2023
 authors:
   - name: davidkomorowicz
@@ -93,6 +93,7 @@ This dataset is a rare case of having a complete photo collection covering the w
 # Backbones and Geometry Loss
 
 ![Point cloud](./assets/pointcloud.png)
+
 ***Sparse and dense point cloud.** We use a dense point cloud instead of the sparse point cloud because we believe the dense point cloud provides complementary information, left is the sparse point cloud and right is the dense point cloud.*
 
 We build our method on top of NeusW. Our network architecture consists of two parts, an SDF net and a color prediction net. The SDF net estimates the signed distance value $$d\in\mathbb{R}$$ and a geometric feature $$\boldsymbol{f}\in\mathbb{R}^{f_n}$$, for $f_n$ is the dimension of the feature vector. Given point $$\boldsymbol{x}\in\mathbb{R}^3$$, the color prediction net outputs the rendered color $$\boldsymbol{c}$$. In detail, given points $$\boldsymbol{x}$$, viewing direction $$\boldsymbol{v}\in\mathbb{S}^2$$, we compute normal $$\boldsymbol{n}=\nabla \text{MLP}_{\text{SDF}}(\boldsymbol{x})$$, 
