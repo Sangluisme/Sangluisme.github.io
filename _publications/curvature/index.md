@@ -69,22 +69,23 @@ c) We introduce an uncertainty-aware implicit neural representation that gives a
 ![curvature](./assets/curvature.png)
 ***Gaussian curvature and mean curvature.** We direct compute curvature information from depth images and integrate them into voxels Figure shows the low (blue) curvature area and high (red) curvature area.* 
 
-Depth images can provide more geometric information other than normals. To solve the biased sampling problem, we propose directly incorporating mean curvature during the voxelization step to help with the sampling procedure during training. To our knowledge, we are the first to integrate mean curvatures, computed from depth images, with voxels for efficient sampling afterward. A depth image can be viewed as a Monge patch of a surface, i.e. $$z = D(m,n), (m,n) \in \Omega \subset \mathbb{R}^2$$ with pixel coordinates $$(m,n)$$ lay in the image domain $$\Omega$$. Thus, the Monge patch $$\mathcal{M}: \Omega \to \mathbb{R}^3$$ is 
-$$\mathcal{M}(m,n) = (m, n, D(m,n))$$. To compute the two types of curvatures from the depth 
+Depth images can provide more geometric information other than normals. To solve the biased sampling problem, we propose directly incorporating mean curvature during the voxelization step to help with the sampling procedure during training. To our knowledge, we are the first to integrate mean curvatures, computed from depth images, with voxels for efficient sampling afterward. A depth image can be viewed as a Monge patch of a surface, i.e. $$z = D(m,n), (m,n) \in \Omega \subset \mathbb{R}^2$$ with pixel coordinates $$(m,n)$$ lay in the image domain $$\Omega$$. Thus, the Monge patch $$\boldsymbol{M}: \Omega \to \mathbb{R}^3$$ is 
+$$\boldsymbol{M}(m,n) = (m, n, D(m,n))$$. To compute the two types of curvatures from the depth 
 
 $$
-K(m,n)  &= \frac{D_{mm}D_{nn} - D_{mn}^2}{(1+D_m+D_n)^2} \,, \\
-H(m,n)  &= \frac{(1+D_m^2)D_{nn} - 2D_m D_n D_{mn} + (1+D_n^2)D_{mm}}{2 (1+D_m^2 + D_n^2)^{3/2}} \,, 
+K(m,n)  = \frac{D_{mm}D_{nn} - D_{mn}^2}{(1+D_m+D_n)^2} \\
+H(m,n)  = \frac{(1+D_m^2)D_{nn} - 2D_m D_n D_{mn} + (1+D_n^2)D_{mm}}{2 (1+D_m^2 + D_n^2)^{3/2}}
 $$
 
 ![curvature guided sampling](./assets/sampling.png)
 ***Curvature guided sampling.** To sample points using curvature information. Left images is the high curvature gathering effect when directly sampling using voxels, right side is sample using our methods.* 
 
-To avoid the uneven sampling problem, we divide sampled points into low, median, and high curvature regions. For each epoch, m points are sampled from low curvature category $$\hat{\mathbf{p}} \sim \{\mathbf{p} \in \Gamma~|~H^p < \underbar{H}\}$$, median curvature category $$\hat{\mathbf{p}} \sim \{\mathbf{p}\in\Gamma~|~ \underbar{H} \leq H^p < \bar{H}\}$$, and high curvature category $$\hat{\mathbf{p}} \sim \{\mathbf{p} \in\Gamma~|~H^p \geq \bar{H}\}$$.
+To avoid the uneven sampling problem, we divide sampled points into low, median, and high curvature regions. For each epoch, m points are sampled from low curvature category $$\hat{\mathbf{p}} \sim \{\mathbf{p} \in \Gamma \| H^p < \underbar{H}\}$$, median curvature category $$\hat{\mathbf{p}} \sim \{\mathbf{p}\in\Gamma \| \underbar{H} \leq H^p < \bar{H}\}$$, and high curvature category $$\hat{\mathbf{p}} \sim \{\mathbf{p} \in\Gamma \| H^p \geq \bar{H}\}$$.
 
 # Voxel-based sampling
 
 ![voxel interpolation sampling](./assets/interpolation.png)
+
 ***voxel interpolation sampling.** Allows us to get SDF value of any point in the space. To efficiently dealing with sparse input data.*
 
 we introduce an interpolation strategy that deals with the sparse input and uses the gradient and curvature information. With the initialized coarse voxel representation $$\{\mathbf{v}_i\}$$, we first sample a random point $$\mathbf{p} \in \Gamma$$ in 3D space, where $$\Gamma \subset \mathbb{R}^3$$ is the sampling domain. With the help of the voxel grid structure, we can localize in which voxel the point $$\mathbf{p} \in \mathbb{R}^3$$ lies and denote the coordinate of the voxel center as $$\mathbf{v}(\mathbf{p})  \in \mathbb{R}^3$$. Then, the signed distance value of the sampled point $\mathbf{p}$ can be easily computed by Taylor expansion with the help of the stored gradient $$\mathbf{g}^v$$ as
@@ -93,7 +94,7 @@ $$
 \psi^p = \psi^v + <\hat{\mathbf{g}}^v, \mathbf{p} - \mathbf{v}(\mathbf{p})> \,,
 $$
 
-where $$\hat{\mathbf{g}}^v = \frac{\mathbf{g}^v}{\lVert\mathbf{g}^v}\rVert$$ is the normalized gradient of the distance field. 
+where $$\hat{\mathbf{g}}^v = \frac{\mathbf{g}^v}{\lVert\mathbf{g}^v\rVert}$$ is the normalized gradient of the distance field. 
 
 # Uncertainty-Aware Implicit Surface Reconstruction
 
@@ -101,10 +102,10 @@ We would like to recover the neural implicit function $$f:\mathbb{R}^3 \to (\psi
 Given a point $$\mathbf{p}$$ in the sample domain $$\Gamma$$, its corresponding voxel $$\mathbf{v}(\mathbf{p})$$ with the interpolated SDF value $$\psi^p$$ and uncertainty $$w^p$$, we define the loss function of the geometric and the normal constraints as
 
 $$
-    \mathit{l}_\mathcal{X}(\theta) &= \frac{1}{|\Gamma^+|}\int_{\Gamma^+} (|\psi - \psi^p|)d\Gamma \,,  \\
-    \mathit{l}_{\mathcal{N}} (\theta) &= \frac{1}{|\Gamma^+|} \int_{\Gamma^+} (1- dotp{\frac{\nabla_{\psi} f(\mathbf{p}, \theta)}{\norm{\nabla_{\psi} f(\mathbf{p}, \theta)}}, \hat{\mathbf{g}}})d\Gamma \,,  \\
-    \mathit{l}_{\mathcal{W}}(\theta_r) &= \int_{\Gamma} |w - w^p|d\Gamma \,, \\
-    \mathit{l}_{\mathcal{E}}(\theta) = & \int_{\Gamma} |\lVert\nabla_\psi f(\mathbf{p},\theta)\rVert^2 - 1| d\Gamma \,,
+    \mathit{l}_\boldsymbol{X}(\theta) = \frac{1}{\|\Gamma^+\|}\int_{\Gamma^+} (\|\psi - \psi^p\|)d\Gamma \,,  \\
+    \mathit{l}_{\boldsymbol{N}} (\theta) = \frac{1}{\|\Gamma^+\|} \int_{\Gamma^+} (1- <\frac{\nabla_{\psi} f(\mathbf{p}, \theta)}{\norm{\nabla_{\psi} f(\mathbf{p}, \theta)}}, \hat{\mathbf{g}}>)d\Gamma \,,  \\
+    \mathit{l}_{\boldsymbol{W}}(\theta_r) = \int_{\Gamma} \|w - w^p\|d\Gamma \,, \\
+    \mathit{l}_{\boldsymbol{E}}(\theta) =  \int_{\Gamma} \|\lVert\nabla_\psi f(\mathbf{p},\theta)\rVert^2 - 1\| d\Gamma \,,
 $$
 
 where $$\Gamma^+$$ indicates the area with the sampled uncertainty $$w^p>0$$.
