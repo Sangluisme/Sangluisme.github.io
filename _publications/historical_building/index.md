@@ -106,7 +106,7 @@ $$
 The geometry loss is 
 
 $$
-\boldsymbolhit{l}_{g}(\boldsymbol{x}) = \lambda \frac{1}{\|\boldsymbol{P}_i\|}\sum_{\boldsymbol{x} \in \boldsymbol{P}_i}{\|\text{MLP}_{\text{SDF}}(\boldsymbol{x})\|}\,,
+\mathit{l}_{g}(\boldsymbol{x}) = \lambda \frac{1}{\|\boldsymbol{P}_i\|}\sum_{\boldsymbol{x} \in \boldsymbol{P}_i}{\|\text{MLP}_{\text{SDF}}(\boldsymbol{x})\|}\,,
 $$
 
 where $$\|\boldsymbol{P}_i\|$$ is the number of points in the point cloud and $\lambda$ is a learnable parameter.
@@ -123,7 +123,7 @@ where $$w_r=0.2126$$, $$w_g=0.7152$$ and $$w_b=0.0722$$.
 The loss for ray color $$\boldsymbol{C}^{\prime}(\boldsymbol{r})$$ in image with true color $$\boldsymbol{C}(\boldsymbol{r})$$ is
 
 $$
-    \boldsymbolhit{l}_c(\boldsymbol{r}) = \begin{cases}
+    \mathit{l}_c(\boldsymbol{r}) = \begin{cases}
     \frac{1}{2}  \|\boldsymbol{C}(\boldsymbol{r}) - g(\boldsymbol{C}^{\prime}(\boldsymbol{r}))\|^2, & \text{if}~ \boldsymbol{r}~\text{is gray-scale} \,, \\
     \frac{1}{2}  \|\boldsymbol{C}(\boldsymbol{r}) - \boldsymbol{C}^{\prime}(\boldsymbol{r})\|^2,              & \text{otherwise}\,.
 \end{cases}
