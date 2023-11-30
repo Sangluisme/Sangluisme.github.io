@@ -13,3 +13,9 @@ oxford:
 mit:
   long: Massachusetts Institute of Technology
   short: MIT
+tud:
+  long: Dresden University of Technology
+  short: TU Dresden
+jena:
+  long: Friedrich Schiller University Jena
+  short: University Jena
