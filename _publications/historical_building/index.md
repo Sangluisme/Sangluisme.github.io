@@ -1,12 +1,12 @@
 ---
 layout: page
-permalink: publications/historical_buidling/
+permalink: publications/historical_building/
 date: 2023_11_27 # determines sorting just take the date of the first publication as YYYY_MM_DD
 image: assets/teaser.png
 image_mouseover: assets/historical.mp4
 
-title: "High-Quality RGB-D Reconstruction via Multi-View Uncalibrated Photometric Stereo and Gradient-SDF"
-venue: WACV, 2023
+title: "Coloring the Past: Neural Historical Buildings Reconstruction \\ from Archival Photography"
+venue: Arxiv, 2023
 authors:
   - name: davidkomorowicz
     affiliations: "1,2"
