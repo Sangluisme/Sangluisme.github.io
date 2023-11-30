@@ -34,6 +34,9 @@ links:
     - name: Code
       link: coming soon...
       style: "bi bi-github"
+    - name: Video
+      link: publications/street_view/street_view/street.mp4
+      style: "bi bi-youtube"
 
 citation: '@misc{deka2023erasing,
       title={Erasing the Ephemeral: Joint Camera Refinement and Transient Object Removal for Street View Synthesis}, 
@@ -48,7 +51,7 @@ citation: '@misc{deka2023erasing,
 ---
 
 <video width="100%" autoplay muted loop>
-  <source src="./assets/ours_recon_09.mp4" type="video/mp4">
+  <source src="./assets/street.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 
