@@ -27,7 +27,7 @@ affiliations:
   - name: tud
     length: short
 
-description: "A novel formulation of physically realistic image model(s) compatible with a volumetric representation which enables effective optimization on actual surface points."
+description: "An approach to reconstruct the geometry of historical buildings, employing volumetric rendering techniques. We leverage dense point clouds as a geometric prior and introduce a color appearance embedding loss to recover the color of the building given limited available color images."
 
 links:
     - name: Project Page
@@ -64,7 +64,7 @@ Historical buildings are a treasure and milestone of human cultural heritage. Re
 
 # Overview
 
-![Overview](./assets/teaser.png)
+<!-- ![Overview](./assets/teaser.png) -->
 
 a) We propose a method that is able to reconstruct satisfactory 3D geometry of historical buildings by leveraging sparse and low-quality images.
 
@@ -95,7 +95,7 @@ This dataset is a rare case of having a complete photo collection covering the w
 ![Point cloud](./assets/pointcloud.png)
 ***Sparse and dense point cloud.** We use a dense point cloud instead of the sparse point cloud because we believe the dense point cloud provides complementary information, left is the sparse point cloud and right is the dense point cloud.*
 
-We build our method on top of NeusW. Our network architecture consists of two parts, an SDF net and a color prediction net. The SDF net estimates the signed distance value $$d\in\boldsymbolhbb{R}$$ and a geometric feature $$\boldsymbol{f}\in\boldsymbolhbb{R}^{f_n}$$, for $f_n$ is the dimension of the feature vector. Given point $$\boldsymbol{x}\in\boldsymbolhbb{R}^3$$, the color prediction net outputs the rendered color $$\boldsymbol{c}$$. In detail, given points $$\boldsymbol{x}$$, viewing direction $$\boldsymbol{v}\in\boldsymbolhbb{S}^2$$, we compute normal $$\boldsymbol{n}=\nabla \text{MLP}_{\text{SDF}}(\boldsymbol{x})$$, 
+We build our method on top of NeusW. Our network architecture consists of two parts, an SDF net and a color prediction net. The SDF net estimates the signed distance value $$d\in\mathbb{R}$$ and a geometric feature $$\boldsymbol{f}\in\mathbb{R}^{f_n}$$, for $f_n$ is the dimension of the feature vector. Given point $$\boldsymbol{x}\in\mathbb{R}^3$$, the color prediction net outputs the rendered color $$\boldsymbol{c}$$. In detail, given points $$\boldsymbol{x}$$, viewing direction $$\boldsymbol{v}\in\mathbb{S}^2$$, we compute normal $$\boldsymbol{n}=\nabla \text{MLP}_{\text{SDF}}(\boldsymbol{x})$$, 
 
 $$
   (d,\boldsymbol{f}) = \text{MLP}_{\text{SDF}}(\boldsymbol{x}) \\
@@ -105,14 +105,14 @@ $$
 The geometry loss is 
 
 $$
-\boldsymbolhit{l}_{g}(\boldsymbol{x}) = \lambda \frac{1}{\|\boldsymbolhcal{P}_i\|}\sum_{\boldsymbol{x} \in \boldsymbolhcal{P}_i}{\|\text{MLP}_{\text{SDF}}(\boldsymbol{x})\|}\,,
+\boldsymbolhit{l}_{g}(\boldsymbol{x}) = \lambda \frac{1}{\|\boldsymbol{P}_i\|}\sum_{\boldsymbol{x} \in \boldsymbol{P}_i}{\|\text{MLP}_{\text{SDF}}(\boldsymbol{x})\|}\,,
 $$
 
-where $$\|\boldsymbolhcal{P}_i\|$$ is the number of points in the point cloud and $\lambda$ is a learnable parameter.
+where $$\|\boldsymbol{P}_i\|$$ is the number of points in the point cloud and $\lambda$ is a learnable parameter.
 
 # Color Appearance Embedding
 
-To deal with the situation that most of the input images are available as gray-scale, and only a small portion provides color channels, we propose a color appearance embedding loss to recover color output. The color net outputs a three-channel color vector, to supervise it using gray-scale images, we use perceptual weights to convert the output color to gray-scale value, i.e., for $$\boldsymbol{C}^{\prime}(\boldsymbol{r}) = (c_r, c_g, c_b)$$, we propose the function $$g:\boldsymbolhbb{R}^3 \to \boldsymbolhbb{R}$$ and
+To deal with the situation that most of the input images are available as gray-scale, and only a small portion provides color channels, we propose a color appearance embedding loss to recover color output. The color net outputs a three-channel color vector, to supervise it using gray-scale images, we use perceptual weights to convert the output color to gray-scale value, i.e., for $$\boldsymbol{C}^{\prime}(\boldsymbol{r}) = (c_r, c_g, c_b)$$, we propose the function $$g:\mathbb{R}^3 \to \mathbb{R}$$ and
 
 $$
     g(\boldsymbol{C}^{\prime}(\boldsymbol{r})) = w_r c_r + w_g c_g + w_b c_b\,,
