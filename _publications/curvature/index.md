@@ -80,7 +80,7 @@ $$
 ![curvature guided sampling](./assets/sampling.png)
 ***Curvature guided sampling.** To sample points using curvature information. Left images is the high curvature gathering effect when directly sampling using voxels, right side is sample using our methods.* 
 
-To avoid the uneven sampling problem, we divide sampled points into low, median, and high curvature regions. For each epoch, m points are sampled from low curvature category $$\hat{\mathbf{p}} \sim \{\mathbf{p} \in \Gamma \| H^p < \underbar{H}\}$$, median curvature category $$\hat{\mathbf{p}} \sim \{\mathbf{p}\in\Gamma \| \underbar{H} \leq H^p < \bar{H}\}$$, and high curvature category $$\hat{\mathbf{p}} \sim \{\mathbf{p} \in\Gamma \| H^p \geq \bar{H}\}$$.
+To avoid the uneven sampling problem, we divide sampled points into low, median, and high curvature regions. For each epoch, m points are sampled from low curvature category $$\hat{\mathbf{p}} \sim \{\mathbf{p} \in \Gamma \| H^p < \underline{H}\}$$, median curvature category $$\hat{\mathbf{p}} \sim \{\mathbf{p}\in\Gamma \| \underline{H} \leq H^p < \bar{H}\}$$, and high curvature category $$\hat{\mathbf{p}} \sim \{\mathbf{p} \in\Gamma \| H^p \geq \bar{H}\}$$.
 
 # Voxel-based sampling
 
@@ -103,7 +103,7 @@ Given a point $$\mathbf{p}$$ in the sample domain $$\Gamma$$, its corresponding 
 
 $$
     \mathit{l}_\boldsymbol{X}(\theta) = \frac{1}{\|\Gamma^+\|}\int_{\Gamma^+} (\|\psi - \psi^p\|)d\Gamma \,,  \\
-    \mathit{l}_{\boldsymbol{N}} (\theta) = \frac{1}{\|\Gamma^+\|} \int_{\Gamma^+} (1- <\frac{\nabla_{\psi} f(\mathbf{p}, \theta)}{\norm{\nabla_{\psi} f(\mathbf{p}, \theta)}}, \hat{\mathbf{g}}>)d\Gamma \,,  \\
+    \mathit{l}_{\boldsymbol{N}} (\theta) = \frac{1}{\|\Gamma^+\|} \int_{\Gamma^+} (1- <\frac{\nabla_{\psi} f(\mathbf{p}, \theta)}{\lVert\nabla_{\psi} f(\mathbf{p}, \theta)\rVert}, \hat{\mathbf{g}}>)d\Gamma \,,  \\
     \mathit{l}_{\boldsymbol{W}}(\theta_r) = \int_{\Gamma} \|w - w^p\|d\Gamma \,, \\
     \mathit{l}_{\boldsymbol{E}}(\theta) =  \int_{\Gamma} \|\lVert\nabla_\psi f(\mathbf{p},\theta)\rVert^2 - 1\| d\Gamma \,,
 $$
