@@ -72,6 +72,7 @@ b) We propose a color appearance embedding loss to obtain a color synthetic view
 
 c) We publish a historical dataset that showcases a wide range of properties typically present in historical datasets.
 
+<iframe src="https://benaco.com/embed/6c7ecafc-3db4-409e-8afa-3d79f12eb4b1" scrolling="no" frameborder="0" allowfullscreen></iframe>
 
 # Historical Dataset
 
