@@ -73,7 +73,9 @@ b) We propose a color appearance embedding loss to obtain a color synthetic view
 c) We publish a historical dataset that showcases a wide range of properties typically present in historical datasets.
 
 <iframe src="https://benaco.com/embed/6c7ecafc-3db4-409e-8afa-3d79f12eb4b1" scrolling="no" frameborder="0" allowfullscreen style="width: 100%; height: 60vh; display: block;"></iframe>
-Drag to look around, click on floor markers to select camera view and press , or . to step through cameras.
+Drag to look around, click on  markers to select camera view and press , or . to step through cameras.
+
+Image sources: [Fortepan](https://fortepan.hu/), [Metropolitan Ervin Szabó Library](https://foto.fszek.hu/WebPac_kep/?language=1) and [MTVA Archive](https://archivum.mtva.hu/photobank)
 
 # Historical Dataset
 
