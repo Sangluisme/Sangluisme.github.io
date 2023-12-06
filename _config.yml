@@ -22,8 +22,9 @@ name: Lu Sang
 email: lu.sang@tum.de
 description: >- # this means to ignore newlines until "baseurl:"
   I am a PhD student at the Computer Vision Group at TU Munich under the guidance of Prof. Cremers. This is an overview over projects I was personally involved in. Check out more awesome work from our group at https://cvg.cit.tum.de/publications
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/Sangluisme.github.io" # the subpath of your site, e.g. /blog
+url: "https://dawars.me" # the base hostname & protocol for your site, e.g. http://example.com
+google_scholar: TIRXP0QAAAAJ
 twitter_username: Lu_Sang__
 github_username:  Sangluisme
 
