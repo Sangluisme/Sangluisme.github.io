@@ -33,8 +33,8 @@ links:
     #   link: # after video was created
     #   style: "bi bi-youtube"
 
-citation: "@misc{sang2023neurosurf,
-      title={NeuroSURF: Neural Uncertainty-aware Robust Surface Reconstruction}, 
+citation: "@misc{sang2023enhancing,
+      title={Enhancing Surface Neural Implicits with Curvature-Guided Sampling and Uncertainty-Augmented Representations}, 
       author={Lu Sang and Abhishek Saroha and Maolin Gao and Daniel Cremers},
       year={2023},
       eprint={2306.02099},
