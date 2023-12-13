@@ -24,7 +24,7 @@ links:
     - name: Project Page
       link: publications/curvature/
     - name: Paper
-      link: https://arxiv.org/abs/2306.02099 # change this as soon as the paper is uploaded
+      link: http://arxiv.org/abs/2306.02099 # change this as soon as the paper is uploaded
       style: "bi bi-file-earmark-richtext"
     - name: Code
       link: coming soon
