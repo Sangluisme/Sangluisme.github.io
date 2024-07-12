@@ -6,7 +6,7 @@ image: assets/teaser.png
 image_mouseover: assets/ours_recon_09.mp4
 
 title: "Erasing the Ephemeral: Joint Camera Refinement and Transient Object Removal for Street View Synthesis"
-venue: ArXiv, 2023
+venue: GCPR, 2024
 authors:
   - name: mreenavdeka
     affiliations: "1"
