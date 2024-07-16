@@ -8,7 +8,7 @@ image_mouseover: assets/header_video.mp4
 title: "DiffCD: A Symmetric Differentiable Chamfer Distance for Neural Implicit Surface Fitting"
 venue: ECCV, 2024
 authors:
-  - name: linus
+  - name: linusnielsen
     affiliation: "1,2"
   - name: lusang
     affiliations: "1,2"
@@ -47,6 +47,8 @@ citation: "@inproceedings{haerenstam2024diffcd,
 ---
 
 ![Teaser Figure](./assets/teaser.png)
+
+***DiffCD.** We propose a novel loss function corresponding to the symmetric Chamfer distance to address these shortcomings. It assures both that the points are near the surface and that the surface is near the points. Our approach reliably recovers a high level of shape detail and eliminates spurious surfaces without the need for additional regularization. To make our approach more practical, we further propose an efficient method for uniformly sampling point batches from the implicit surface.*
 
 # Abstract
 
