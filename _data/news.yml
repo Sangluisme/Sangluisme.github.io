@@ -1,7 +1,9 @@
 - date: July 2024
-  description: '"Coloring the Past: Neural Historical Buildings Reconstruction from Archival Photography" is accepted by GCPR.'
+  description: '"Coloring the Past: Neural Historical Buildings Reconstruction from Archival Photography" is accepted by GCPR 2024.'
 - date: July 2024
-  description: '"Erasing the Ephemeral: Joint Camera Refinement and Transient Object Removal for Street View Synthesis" is accepted by GCPR.'
+  description: '"Erasing the Ephemeral: Joint Camera Refinement and Transient Object Removal for Street View Synthesis" is accepted by GCPR 2024.'
+- date: July 2024
+  description: 'Our paper "DiffCD: A Symmetric Differentiable Chamfer Distance for Neural Implicit Surface Fitting" is accepted by ECCV 2024
 - date: December 2023
   description: '"Coloring the Past: Neural Historical Buildings Reconstruction from Archival Photography" is now on Arxiv. Check the project page for our work.'
 - date: November 2023
@@ -9,10 +11,10 @@
 - date: September 2023
   description: '"Enhancing Surface Neural Implicits with Curvature-Guided Sampling and Uncertainty-Augmented Representations" is now on Arxiv.'
 - date: January 2023
-  description: '"High-Quality RGB-D Reconstruction via Multi-View Uncalibrated Photometric Stereo and Gradient-SDF" was accepted to WACV2023'
+  description: '"High-Quality RGB-D Reconstruction via Multi-View Uncalibrated Photometric Stereo and Gradient-SDF" was accepted to WACV 2023'
 - date: April 2022
-  description: '"Gradient-SDF: A Semi-Implicit Surface Representation for 3D Reconstruction" was accepted to CVPR2022'
+  description: '"Gradient-SDF: A Semi-Implicit Surface Representation for 3D Reconstruction" was accepted to CVPR 2022'
 - date: March 2020
-  description: '"Inferring Super-Resolution Depth from a Moving Light-Source Enhanced RGB-D Sensor: A Variational Approach" was accepted to WACV2020'
+  description: '"Inferring Super-Resolution Depth from a Moving Light-Source Enhanced RGB-D Sensor: A Variational Approach" was accepted to WACV 2020'
 - date: December 2019
   description: 'Started my PhD at the Computer Vision Group at TUM under the guidance of Prof. Daniel Cremers'
