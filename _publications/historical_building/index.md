@@ -6,7 +6,7 @@ image: assets/teaser.png
 image_mouseover: assets/historical.mp4
 
 title: "Coloring the Past: Neural Historical Buildings Reconstruction from Archival Photography"
-venue: Arxiv, 2023
+venue: GCPR, 2024
 authors:
   - name: davidkomorowicz
     affiliations: "1,2"
@@ -42,13 +42,10 @@ links:
       link: publications/historical_building/historical.mp4
       style: "bi bi-youtube"
 
-citation: "@misc{komorowicz2023coloring,
-      title={Coloring the Past: Neural Historical Buildings Reconstruction from Archival Photography}, 
-      author={David Komorowicz and Lu Sang and Ferdinand Maiwald and Daniel Cremers},
-      year={2023},
-      eprint={2311.17810},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+citation: "@inproceedings{komorowicz2023coloring,
+ title = {Coloring the Past: Neural Historical Buildings Reconstruction from Archival Photography},
+ author = {D Komorowicz and L Sang and F Maiwald and D Cremers},
+ year = {2024},
 }"
 
 # citation: "@{ASDF}"

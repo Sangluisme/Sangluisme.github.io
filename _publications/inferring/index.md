@@ -43,6 +43,9 @@ citation: "@inproceedings{sang2020wacv,
  eprint = {1912.06501},
  eprinttype = {arXiv},
  eprintclass = {cs.CV},
+ award = {Spotlight Presentation},
+ titleurl = {sang2020wacv.pdf},
+ keywords = {3d-reconstruction,rgb-d,photometry},
 }"
 
 # citation: "@{ASDF}"

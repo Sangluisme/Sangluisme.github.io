@@ -49,6 +49,8 @@ citation: "@inproceedings{sang2023high,
  eprinttype = {arXiv},
  eprintclass = {cs.CV},
  copyright = {Creative Commons Attribution Non Commercial No Derivatives 4.0 International},
+ titleurl = {sang2023high.png},
+ award = {Spotlight Presentation},
  keywords = {3d-reconstruction,rgb-d,photometry},
 }"
 

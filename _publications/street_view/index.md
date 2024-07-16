@@ -38,14 +38,13 @@ links:
       link: publications/street_view/street_view/street.mp4
       style: "bi bi-youtube"
 
-citation: '@misc{deka2023erasing,
-      title={Erasing the Ephemeral: Joint Camera Refinement and Transient Object Removal for Street View Synthesis}, 
-      author={Mreenav Shyam Deka and Lu Sang and Daniel Cremers},
-      year={2023},
-      eprint={2311.17634},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
-}'
+citation: "@inproceedings{komorowicz2023coloring,
+ title = {Coloring the Past: Neural Historical Buildings Reconstruction from Archival Photography},
+ author = {D Komorowicz and L Sang and F Maiwald and D Cremers},
+ year = {2024},
+ booktitle = {German Conference on Pattern Recognition (GCPR)},
+ titleurl = {komorowicz2023.png},
+}"
 
 # citation: "@{ASDF}"
 ---
