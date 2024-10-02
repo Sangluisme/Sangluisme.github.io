@@ -9,8 +9,7 @@ profile:
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>123 Boltzmannstr. 5</p>
-    <p>Garching, Germany</p>
+    
 
 news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
@@ -25,6 +24,4 @@ I mainly work on 3D & 4D reconstruction.
 
 I am passionate about applying elegant mathematical theories to address practical, real-world challenges during my research.
 
-Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
-
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+This is an overview over projects I was personally involved in. Check out more awesome work from our group at https://cvg.cit.tum.de/publications
