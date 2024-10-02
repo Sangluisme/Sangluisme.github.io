@@ -17,6 +17,11 @@
         "network": "Twitter",
         "username": "@Lu_Sang__",
         "url": "https://x.com/Lu_Sang__"
+      },
+      {
+        "network": "Github",
+        "username": "Sangluisme",
+        "url": "https://github.com/Sangluisme"
       }
     ]
   },
@@ -121,7 +126,7 @@
         "PDE",
         "analysis",
         "optimization",
-        "physical modelling",
+        "physical modelling"
       ]
     }
   ]
