@@ -24,6 +24,6 @@ social: true # includes social icons at the bottom of the page
 I am a PhD student at the Computer Vision Group at TU Munich under the guidance of [Prof. Cremers](https://scholar.google.com/citations?user=cXQciMEAAAAJ&hl=en).
 I mainly work on 3D & 4D reconstruction.
 
-I am passionate about applying elegant mathematical theories to address practical, real-world challenges during my research.
+I am passionate about applying elegant mathematical theories to address practical, real-world challenges during [my research](https://sangluisme.github.io/publications/).
 
 This is an overview over projects I was personally involved in. Check out more awesome work from our [CVG group](https://cvg.cit.tum.de/publications).
