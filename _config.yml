@@ -193,7 +193,7 @@ collections:
   news:
     defaults:
       layout: post
-    output: False
+    output: false
     permalink: /:news/:title/
   publications:
     output: true
