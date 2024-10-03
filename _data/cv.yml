@@ -3,8 +3,6 @@
   contents:
     - name: Full Name
       value: Lu Sang
-    # - name: Date of Birth
-    #   value: 27th August 1992
     - name: Languages
       value: English, Chinese, German
 

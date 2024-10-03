@@ -16,9 +16,8 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-*"The weight of evidence for an extraordinary claim must be proportioned to its strangeness."*
-
-                         *-- Pierre-Simon Laplace*
+> "In mathematics, you don’t understand things. You just get used to them."
+> -John von Neumann
 
 
 
