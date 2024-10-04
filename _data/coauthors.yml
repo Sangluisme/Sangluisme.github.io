@@ -52,33 +52,33 @@
 
 "xingxingzuo":
   -firstname: ["Xingxing Zuo", "X.", "Xingxing"]
-  url: https://xingxingzuo.github.io/
+    url: https://xingxingzuo.github.io/
 
 "davidkomorowicz":
-  -firstname: ["David Komorowicz", "D. Komorowicz"]
-  url: https://github.com/Dawars
+  -firstname: ["David Komorowicz", "D. Komorowicz","David Komorowicz*", "David"]
+    url: https://github.com/Dawars
 
 "mreenavdeka":
   -firstname: ["Mreenav", "M."]
-  url:
+    url:
 
 "ferdinandmaiwald":
   -firstname: ["Ferdinand Maiwald", "F. Maiwald", "Ferdinand"]
-  url: https://tu-dresden.de/bu/umwelt/geo/ipf/photogrammetrie/die-professur/beschaeftigte/Ferdinand_Maiwald
+    url: https://tu-dresden.de/bu/umwelt/geo/ipf/photogrammetrie/die-professur/beschaeftigte/Ferdinand_Maiwald
 
 "dongliangcao": 
   -firstname: ["Dongliang", "D. Cao"]
-  url: https://dongliangcao.github.io/
+    url: https://dongliangcao.github.io/
 
 "zahranazcanfes":
   -firstname: ["Zahranaz", "Z."]
-  url:
+    url:
 
 
 "maolingao":
   -firstname: ["Maolin Gao", "M. Gao", "Maolin"]
-  url: https://maolingao.github.io/
+    url: https://maolingao.github.io/
 
 "ahbishecksaroha":
   -firstname: ["Ahbisheck", "Ahbisheck Soraha"]
-  url: https://cvg.cit.tum.de/members/saroha
+    url: https://cvg.cit.tum.de/members/saroha
