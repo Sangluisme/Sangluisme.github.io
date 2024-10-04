@@ -58,9 +58,9 @@
   -firstname: ["David Komorowicz", "D. Komorowicz","David Komorowicz*", "David"]
     url: https://github.com/Dawars
 
-"mreenavdeka":
-  -firstname: ["Mreenav", "M."]
-    url:
+# "mreenavdeka":
+#   -firstname: ["Mreenav", "M."]
+#     url:
 
 "ferdinandmaiwald":
   -firstname: ["Ferdinand Maiwald", "F. Maiwald", "Ferdinand"]
@@ -70,9 +70,9 @@
   -firstname: ["Dongliang", "D. Cao"]
     url: https://dongliangcao.github.io/
 
-"zahranazcanfes":
-  -firstname: ["Zahranaz", "Z."]
-    url:
+# "zahranazcanfes":
+#   -firstname: ["Zahranaz", "Z."]
+#     url:
 
 
 "maolingao":
