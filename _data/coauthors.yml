@@ -51,27 +51,27 @@
     url: https://cvg.cit.tum.de/members/eisenber
 
 "xingxingzuo":
-  -firstname: ["Xingxing Zuo", "X.", "Xingxing"]
+  - firstname: ["Xingxing Zuo", "X.", "Xingxing"]
     url: https://xingxingzuo.github.io/
 
 "davidkomorowicz":
-  -firstname: ["David Komorowicz", "D. Komorowicz","David Komorowicz*", "David"]
+  - firstname: ["David Komorowicz", "D. Komorowicz","David Komorowicz*", "David"]
     url: https://github.com/Dawars
 
 
 "ferdinandmaiwald":
-  -firstname: ["Ferdinand Maiwald", "F. Maiwald", "Ferdinand"]
+  - firstname: ["Ferdinand Maiwald", "F. Maiwald", "Ferdinand"]
     url: https://tu-dresden.de/bu/umwelt/geo/ipf/photogrammetrie/die-professur/beschaeftigte/Ferdinand_Maiwald
 
 "dongliangcao": 
-  -firstname: ["Dongliang", "D. Cao"]
+  - firstname: ["Dongliang", "D. Cao"]
     url: https://dongliangcao.github.io/
 
 
 "maolingao":
-  -firstname: ["Maolin Gao", "M. Gao", "Maolin"]
+  - firstname: ["Maolin Gao", "M. Gao", "Maolin"]
     url: https://maolingao.github.io/
 
 "ahbishecksaroha":
-  -firstname: ["Ahbisheck", "Ahbisheck Soraha"]
+  - firstname: ["Ahbisheck", "Ahbisheck Soraha"]
     url: https://cvg.cit.tum.de/members/saroha
