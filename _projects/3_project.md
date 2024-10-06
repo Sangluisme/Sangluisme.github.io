@@ -27,16 +27,6 @@ authors:
     affiliations:
       name: TUM, MCML
 
-links:
-    - name: Project Page
-      link: _projects/3_project/
-    - name: Paper
-      link: http://arxiv.org/abs/2306.02099 # change this as soon as the paper is uploaded
-      style: "bi bi-file-earmark-richtext"
-    - name: Code
-      link: coming soon
-      style: "bi bi-github"
-
 toc:
   - name: Abstract
     # if a section has subsections, you can add them as follows:
@@ -52,18 +42,10 @@ toc:
   - name: Results
   - name: Citation
 ---
-
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/curvature/teaser.png" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-
----
 <div class="link-block">
   <a href="http://arxiv.org/abs/2306.02099" target="_blank" class="icon-link">
-    <img src="https://img.icons8.com/ios-filled/50/000000/arxiv.png" alt="arXiv" width="20">
-    arXiv
+    <img src="https://img.icons8.com/ios-filled/50/000000/document.png" alt="Paper" width="20">
+    Paper
   </a>
   
   <a href="https://github.com/Sangluisme" target="_blank" class="icon-link">
@@ -71,9 +53,9 @@ toc:
     Code
   </a>
 
-  <a href="https://your-journal-link.com" target="_blank" class="icon-link">
-    <img src="https://img.icons8.com/ios-filled/50/000000/document.png" alt="Paper" width="20">
-    Paper
+  <a href="https://your-video-link.com" target="_blank" class="icon-link">
+    <img src="https://img.icons8.com/ios-filled/50/000000/video.png" alt="Video" width="20">
+    Video
   </a>
 </div>
 
@@ -95,7 +77,12 @@ toc:
     margin-right: 5px;
   }
 </style>
----
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/curvature/teaser.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
 
 ## Abstract
 
@@ -128,6 +115,7 @@ $\boldsymbol{M}(m,n) = (m, n, D(m,n))$. To compute the two types of curvatures f
 $$
 K(m,n)  = \frac{D_{mm}D_{nn} - D_{mn}^2}{(1+D_m+D_n)^2}
 $$
+
 $$
 H(m,n)  = \frac{(1+D_m^2)D_{nn} - 2D_m D_n D_{mn} + (1+D_n^2)D_{mm}}{2 (1+D_m^2 + D_n^2)^{3/2}}
 $$
@@ -188,12 +176,15 @@ Given a point $\mathbf{p}$ in the sample domain $\Gamma$, its corresponding voxe
 $$
     \mathit{l}_{\boldsymbol{X}}(\theta) = \frac{1}{\|\Gamma^+\|}\int_{\Gamma^+} (\|\psi - \psi^p\|)d\Gamma \,, 
 $$
+
 $$
     \mathit{l}_{\boldsymbol{N}} (\theta) = \frac{1}{\|\Gamma^+\|} \int_{\Gamma^+} (1- <\frac{\nabla_{\psi} f(\mathbf{p}, \theta)}{\lVert\nabla_{\psi} f(\mathbf{p}, \theta)\rVert}, \hat{\mathbf{g}}>)d\Gamma \,,
 $$
+
 $$
     \mathit{l}_{\boldsymbol{W}}(\theta_r) = \int_{\Gamma} \|w - w^p\|d\Gamma \,,
 $$
+
 $$
     \mathit{l}_{\boldsymbol{E}}(\theta) =  \int_{\Gamma} \|\lVert\nabla_\psi f(\mathbf{p},\theta)\rVert^2 - 1\| d\Gamma \,,
 $$
