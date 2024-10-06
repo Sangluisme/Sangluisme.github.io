@@ -1,81 +1,162 @@
 ---
-layout: page
-title: project 2
-description: a project with a background image and giscus comments
-img: assets/img/3.jpg
+layout: distill
+title: Erasing the Ephemeral
+description: Joint Camera Refinement and Transient Object Removal for Street View Synthesis
+img: assets/publication_preview/street.png
 importance: 2
 category: work
-giscus_comments: true
+giscus_comments: false
+
+featured: true
+importance: 1
+
+authors:
+  - name: Mreenav Deka*
+    url: "https://github.com/Dawars"
+    affiliations:
+      name: TUM
+  - name: Lu Sang*
+    url: "https://sangluisme.github.io"
+    affiliations:
+      name: TUM, MCML
+  - name: Daniel Cremers
+    url: "https://cvg.cit.tum.de/members/cremers"
+    affiliations:
+      name: TUM, MCML
+
+toc:
+  - name: Abstract
+    # if a section has subsections, you can add them as follows:
+    # subsections:
+    #   - name: Example Child Subsection 1
+    #   - name: Example Child Subsection 2
+  - name: Overview
+    subsection:
+        - name: Moving object detection
+        - name: Pose refinement
+        - name: Self-supervised training
+  - name: Results
+    subsections:
+        - name: Novel view synthesis
+        - name: Trajectory extrapolation
+  - name: Citation
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+<video width="100%" autoplay muted loop>
+  <source src="./assets/street.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+***Reconstructed views on Waymo.** Reconstructed scenes of a sequence from Waymo dataset. Our method can eliminate moving objects on the street.*
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+## Abstract
+
+Synthesizing novel views for urban environments is crucial for tasks like autonomous driving and virtual tours. Compared to object-level or indoor situations, outdoor settings present unique challenges such as inconsistency across frames due to moving vehicles and camera pose drift over lengthy sequences. In this paper, we introduce a method that tackles these challenges on view synthesis for outdoor scenarios. We employ a neural point light field scene representation and strategically detect and mask out dynamic objects to reconstruct novel scenes without artifacts. Moreover, we simultaneously optimize camera pose along with the view synthesis process, and thus we simultaneously refine both elements. Through validation on real-world urban datasets, we demonstrate state-of-the-art results in synthesizing novel views of urban scenes.  
+
+## Overview
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/street/teaser.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
+
+a) We incorporate novel view synthesis with dynamic object erasing which removes artifacts created by inconsistent frames in urban scenes. 
+
+b) We propose a voting scheme for dynamic object detection to achieve consistent classification of moving objects.
+
+c) During training, we jointly refine camera poses and demonstrate the robustness of our method to substantial camera pose noise. As a result, image quality is elevated with the increased accuracy of camera poses.
+
+### Moving Object Detection
+
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/historical/object_detection.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    This image can also have a caption. It's like magic.
+<strong>Moving object detection</strong>. Comparison with and without voting scheme.*
 </div>
 
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
+we employ a voting scheme to reduce inconsistencies in motion prediction that may be caused by incorrect optical field computation or the inconsistencies introduced by ego-motion. In frame $j$ where the object with instance $i$ appears, we compute the motion score $$m_j^i\in \{0,1\}$$, where 1 and 0 denote moving and non-moving objects respectively. Thus, each object has a sequence of motion labels $$\{m^i_n\}_n$$ (out side $n$ means iterate over $$n$$) indicating their motion statuses over frames. Finally, the motion status $M^i$ of an object instance $i$ across the scene is set as
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+$$
+  M^{i} = \begin{cases}
+        1 \text{ if } \text{med}(\{m^i_n\}_n) \geq 0.5 \,, \\
+        0 \text{ otherwise }\,,
+          \end{cases}
+$$
+
+where $$\text{med}(\{m^i_n\}_n)$$ is the median of the motion labels for object $i$ in the sequence $$\{m^i_n\}_n$$. If an instance object is labeled as 1, we denote this object as moving over the entire sequence.
+
+
+### Pose Refinement
+
+<table><tr>
+<td> <img src="./assets/gt_noise_08.gif" alt="Drawing" style="width: 250px;"/> </td>
+<td> <img src="./assets/gt_refined_08.gif" alt="Drawing" style="width: 250px;"/> </td>
+</tr></table>
+
+
+***Pose refinement results**. Noise pose (left) and refined pose (right) of our results.*
+
+To solve the aforementioned inaccurate camera pose problem, we jointly refine the camera poses with the point light field to account for these potential inaccuracies.
+We use the logarithmic representation of the rotation matrix such that the direction and the $l2$ norm of the rotation vector $$\boldsymbol{R} \in \mathbb{R}^{3}$$ represents the axis and magnitude of rotation of the camera in the world-to-camera frame respectively. The translation vector $$\boldsymbol{t} \in \mathbb{R}^{3}$$ represents the location of the camera in the world-to-camera frame.
+
+### Self-supervised Training
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/historical/pipeline.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
+<strong>Pipeline</storng> The pipeline of our method.
 
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
+Denote $$\boldsymbol{R^{\prime}}$$ as the set of rays that are cast from the camera center to the non-masked pixels only. This allows us to retain the information from static vehicles unlike previous masking-based approaches, which mask out all instances of commonly transient objects. Additionally, we reduce the uncertainty introduced by objects that are in motion, which is a very common feature of outdoor scenes. At inference time, we do not consider the mask and instead shoot rays through the entire pixel grid.
+Thus, the color $$C^{\prime}(\boldsymbol{r}_j)$$ of a ray $$\boldsymbol{r}_j$$ is given by 
 
-{% raw %}
+$$
+    C^{\prime}(\boldsymbol{r}_j) = F_{\theta_{LF^{\prime}}}(\phi(\boldsymbol{d}_j) \oplus \phi(\boldsymbol{l}_j), \boldsymbol{R}^{\prime}, \boldsymbol{t}^{\prime})
+$$
 
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
-```
+where $$\boldsymbol{d}_j$$ and $$\boldsymbol{l}_j$$ are the ray direction and the feature vector corresponding to $$\boldsymbol{r}_j$$, $$F_{\theta_{LF^{\prime}}}$$ is an MLP.
+The loss function is
 
-{% endraw %}
+$$
+    \boldsymbol{L}_{m,r} = \sum_{j \in \boldsymbol{R^{\prime}}} || C^{\prime}(r_j) - C(r_j) ||^{2} 
+$$
+
+and the updates to the camera rotation and translation are optimized simultaneously with the neural point light field.
+
+## Results
+
+We evaluate our method on the Waymo open dataset Waymo. We chose 6 scenes from Waymo which we believe are representative of street view scenes with different numbers of static and moving vehicles and pedestrians. We use the RGB images and the corresponding LiDAR point clouds for each scene. We drop out every 10th frame from the dataset for evaluation and train our method on the remaining frames. The RGB images are rescaled by a factor of 0.125 of their original resolutions for training. 
+
+### Novel view synthesis
+
+<video width="100%" autoplay muted loop>
+  <source src="./assets/ours_recon_07.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
+### Trajectory extrapolation
+
+<video width="100%" autoplay muted loop>
+  <source src="./assets/ours_07_exp.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
+Our method uses point clouds as geometry priors. To prove that the network learns the actual scene geometry structure, instead of only learning the color appearance along the trained camera odometry, we extrapolate the trajectory to drift off from the training dataset. We then render views from this new trajectory which are far away from the training views. This differs from the novel view synthesis results presented in the previous paragraph where the network rendered views that were interpolated on the training trajectory.
+
+## bibtex citation
+
+{% highlight javascript %}
+    @inproceedings{deka2023erasing,
+ title = {Erasing the Ephemeral: Joint Camera Refinement and Transient Object Removal for Street View Synthesis},
+ author = {MS. Deka* and L. Sang* and Daniel Cremers},
+ year = {2024},
+ booktitle = {GCPR},
+ arxiv={2311.17634}
+}
+ {% endhighlight %}
