@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Coloring The Past
 description: Neural Historical Buildings Reconstruction from Archival Photography
 img: assets/img/publication_preview/historical.png
