@@ -3,10 +3,9 @@ layout: distill
 title: Coloring The Past
 description: Neural Historical Buildings Reconstruction from Archival Photography
 img: assets/img/publication_preview/historical.png
-giscus_comments: true
+giscus_comments: false
 date: 2023-11-22
 featured: true
-
 
 authors:
   - name: David Komorowicz*
@@ -99,6 +98,7 @@ This dataset is a rare case of having a complete photo collection covering the w
 
 ***Sparse and dense point cloud.** We use a dense point cloud instead of the sparse point cloud because we believe the dense point cloud provides complementary information, left is the sparse point cloud and right is the dense point cloud.*
 
+
 We build our method on top of NeusW. Our network architecture consists of two parts, an SDF net and a color prediction net. The SDF net estimates the signed distance value $$ d \in \mathbb{R} $$ and a geometric feature $$ \boldsymbol{f}\in \mathbb{R}^{f_n} $$, for $f_n$ is the dimension of the feature vector. Given point $$ \boldsymbol{x}\in\mathbb{R}^3 $$, the color prediction net outputs the rendered color $$ \boldsymbol{c} $$. In detail, given points $$ \boldsymbol{x} $$, viewing direction $$\boldsymbol{v}\in\mathbb{S}^2$$, we compute normal $$\boldsymbol{n}=\nabla \text{MLP}_{\text{SDF}}(\boldsymbol{x})$$, 
 
 
@@ -108,6 +108,7 @@ We build our method on top of NeusW. Our network architecture consists of two pa
     @inproceedings{komorowicz2023coloring,
     title = {Coloring the Past: Neural Historical Buildings Reconstruction from Archival Photography},
     author = {D Komorowicz and L Sang and F Maiwald and D Cremers},
+    booktitle = {ECCVW},
     year = {2024},
     }
  {% endhighlight %}
