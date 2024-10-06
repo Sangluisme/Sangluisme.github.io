@@ -41,10 +41,10 @@ Image sources: [Fortepan](https://fortepan.hu/), [Metropolitan Ervin Szabó Libr
     </div>
 </div>
 <div class="caption">
-<strong>Image example</strong> The old photos have poor quality and the building may alter along the years, these makes historical building reconstruction challenging.*
+<strong>Image example</strong> The old photos have poor quality and the building may alter along the years, these makes historical building reconstruction challenging.
 </div>
 
-Reconstructing historical buildings based on archival photography provides significant value not only in the research area but also considering the protection and preservation of cultural heritage. However, historical images of the same building are often scattered in multiple archives with often unresolved copyrights and only a few historical datasets are available for research purposes. Thus, we introduce the *Hungarian National Theater dataset*.
+Reconstructing historical buildings based on archival photography provides significant value not only in the research area but also considering the protection and preservation of cultural heritage. However, historical images of the same building are often scattered in multiple archives with often unresolved copyrights and only a few historical datasets are available for research purposes. Thus, we introduce the **Hungarian National Theater dataset**.
    
    dataset         | Total image | color | Train
 ------------------ | ----------- | ----- | ----- 
@@ -67,4 +67,11 @@ This dataset is a rare case of having a complete photo collection covering the w
 
 We build our method on top of NeusW. Our network architecture consists of two parts, an SDF net and a color prediction net. The SDF net estimates the signed distance value $$ d \in \mathbb{R} $$ and a geometric feature $$ \boldsymbol{f}\in \mathbb{R}^{f_n} $$, for $f_n$ is the dimension of the feature vector. Given point $$ \boldsymbol{x}\in\mathbb{R}^3 $$, the color prediction net outputs the rendered color $$ \boldsymbol{c} $$. In detail, given points $$ \boldsymbol{x} $$, viewing direction $$\boldsymbol{v}\in\mathbb{S}^2$$, we compute normal $$\boldsymbol{n}=\nabla \text{MLP}_{\text{SDF}}(\boldsymbol{x})$$, 
 
-
+bibtex citation:
+    ---
+    @inproceedings{komorowicz2023coloring,
+    title = {Coloring the Past: Neural Historical Buildings Reconstruction from Archival Photography},
+    author = {D Komorowicz and L Sang and F Maiwald and D Cremers},
+    year = {2024},
+    }
+    ---
