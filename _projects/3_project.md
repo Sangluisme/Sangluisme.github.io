@@ -2,7 +2,7 @@
 layout: distill
 title: Neural Surface Reconstruction
 description: Enhancing Surface Neural Implicits with Curvature-Guided Sampling and Uncertainty-Augmented Representations
-img: assets/img/publication_preview/street.png
+img: assets/img/publication_preview/curvature.png
 importance: 1
 category: work
 giscus_comments: false
@@ -67,7 +67,7 @@ Neural implicits have become popular for representing surfaces because they offe
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/curvature/pipeline-2.pdf" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/curvature/pipeline-2.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -77,7 +77,7 @@ Neural implicits have become popular for representing surfaces because they offe
 ### Curvature Estimation from Depth
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/curvature/curvature.pdf" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/curvature/curvature.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -88,7 +88,9 @@ Depth images can provide more geometric information other than normals. To solve
 $\boldsymbol{M}(m,n) = (m, n, D(m,n))$. To compute the two types of curvatures from the depth 
 
 $$
-K(m,n)  = \frac{D_{mm}D_{nn} - D_{mn}^2}{(1+D_m+D_n)^2} \\
+K(m,n)  = \frac{D_{mm}D_{nn} - D_{mn}^2}{(1+D_m+D_n)^2}
+$$
+$$
 H(m,n)  = \frac{(1+D_m^2)D_{nn} - 2D_m D_n D_{mn} + (1+D_n^2)D_{mm}}{2 (1+D_m^2 + D_n^2)^{3/2}}
 $$
 
@@ -146,9 +148,15 @@ We would like to recover the neural implicit function $f:\mathbb{R}^3 \to (\psi,
 Given a point $\mathbf{p}$ in the sample domain $\Gamma$, its corresponding voxel $\mathbf{v}(\mathbf{p})$ with the interpolated SDF value $\psi^p$ and uncertainty $w^p$, we define the loss function of the geometric and the normal constraints as
 
 $$
-    \mathit{l}_{\boldsymbol{X}}(\theta) = \frac{1}{\|\Gamma^+\|}\int_{\Gamma^+} (\|\psi - \psi^p\|)d\Gamma \,,  \\
-    \mathit{l}_{\boldsymbol{N}} (\theta) = \frac{1}{\|\Gamma^+\|} \int_{\Gamma^+} (1- <\frac{\nabla_{\psi} f(\mathbf{p}, \theta)}{\lVert\nabla_{\psi} f(\mathbf{p}, \theta)\rVert}, \hat{\mathbf{g}}>)d\Gamma \,,  \\
-    \mathit{l}_{\boldsymbol{W}}(\theta_r) = \int_{\Gamma} \|w - w^p\|d\Gamma \,, \\
+    \mathit{l}_{\boldsymbol{X}}(\theta) = \frac{1}{\|\Gamma^+\|}\int_{\Gamma^+} (\|\psi - \psi^p\|)d\Gamma \,, 
+$$
+$$
+    \mathit{l}_{\boldsymbol{N}} (\theta) = \frac{1}{\|\Gamma^+\|} \int_{\Gamma^+} (1- <\frac{\nabla_{\psi} f(\mathbf{p}, \theta)}{\lVert\nabla_{\psi} f(\mathbf{p}, \theta)\rVert}, \hat{\mathbf{g}}>)d\Gamma \,,
+$$
+$$
+    \mathit{l}_{\boldsymbol{W}}(\theta_r) = \int_{\Gamma} \|w - w^p\|d\Gamma \,,
+$$
+$$
     \mathit{l}_{\boldsymbol{E}}(\theta) =  \int_{\Gamma} \|\lVert\nabla_\psi f(\mathbf{p},\theta)\rVert^2 - 1\| d\Gamma \,,
 $$
 
@@ -158,7 +166,7 @@ where $\Gamma^+$ indicates the area with the sampled uncertainty $w^p>0$.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/curvature/results1.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/curvature/results.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
