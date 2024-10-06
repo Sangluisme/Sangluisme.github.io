@@ -214,15 +214,15 @@ where $\Gamma^+$ indicates the area with the sampled uncertainty $w^p>0$.
 
 
 
-## bibtex citation
+## Citation
 
 {% highlight javascript %}
     @inproceedings{sang2023enhanching,
-        title = {Enhancing Surface Neural Implicits with Curvature-Guided Sampling and Uncertainty-Augmented Representations},
-        author = {L Sang and A Saroha and M Gao and D Cremers},
-        booktitle = {ECCV workshop: wild in 3D},
-        year = {2024},
-        titleurl = {sang2023.png},
+    title = {Enhancing Surface Neural Implicits with Curvature-Guided Sampling and Uncertainty-Augmented Representations},
+    author = {L Sang and A Saroha and M Gao and D Cremers},
+    booktitle = {ECCV workshop: wild in 3D},
+    year = {2024},
+    titleurl = {sang2023.png},
     }
 
  {% endhighlight %}
