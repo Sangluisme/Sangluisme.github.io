@@ -95,6 +95,9 @@ Synthesizing novel views for urban environments is crucial for tasks like autono
         {% include figure.liquid loading="eager" path="assets/img/street/pipeline.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
+<div class="caption">
+    <strong>Pipeline of our method<strong>
+</div>
 
 a) We incorporate novel view synthesis with dynamic object erasing which removes artifacts created by inconsistent frames in urban scenes. 
 
@@ -140,14 +143,6 @@ We use the logarithmic representation of the rotation matrix such that the direc
 
 ### Self-supervised Training
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/street/pipeline.png" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div> 
-<div class="caption">
-<strong>Pipeline</storng> The pipeline of our method.
-</div>
 
 Denote $\boldsymbol{R^{\prime}}$ as the set of rays that are cast from the camera center to the non-masked pixels only. This allows us to retain the information from static vehicles unlike previous masking-based approaches, which mask out all instances of commonly transient objects. Additionally, we reduce the uncertainty introduced by objects that are in motion, which is a very common feature of outdoor scenes. At inference time, we do not consider the mask and instead shoot rays through the entire pixel grid.
 Thus, the color $C^{\prime}(\boldsymbol{r}_j)$ of a ray $\boldsymbol{r}_j$ is given by 
