@@ -42,7 +42,7 @@ toc:
 ---
 
 <video width="100%" autoplay muted loop>
-  <source src="/assets/img/street.mp4" type="video/mp4">
+  <source src="/assets/img/street/street.mp4" type="video/mp4">
 </video>
 
 ***Reconstructed views on Waymo.** Reconstructed scenes of a sequence from Waymo dataset. Our method can eliminate moving objects on the street.*
@@ -91,8 +91,8 @@ where $$\text{med}(\{m^i_n\}_n)$$ is the median of the motion labels for object 
 ### Pose Refinement
 
 <table><tr>
-<td> <img src="./assets/gt_noise_08.gif" alt="Drawing" style="width: 250px;"/> </td>
-<td> <img src="./assets/gt_refined_08.gif" alt="Drawing" style="width: 250px;"/> </td>
+<td> <img src="/assets/img/street/gt_noise_08.gif" alt="Drawing" style="width: 250px;"/> </td>
+<td> <img src="/assets/img/street/gt_refined_08.gif" alt="Drawing" style="width: 250px;"/> </td>
 </tr></table>
 
 
@@ -152,10 +152,10 @@ Our method uses point clouds as geometry priors. To prove that the network learn
 
 {% highlight javascript %}
     @inproceedings{deka2023erasing,
- title = {Erasing the Ephemeral: Joint Camera Refinement and Transient Object Removal for Street View Synthesis},
- author = {MS. Deka* and L. Sang* and Daniel Cremers},
- year = {2024},
- booktitle = {GCPR},
- arxiv={2311.17634}
-}
+    title = {Erasing the Ephemeral: Joint Camera Refinement and Transient Object Removal for Street View Synthesis},
+    author = {MS. Deka* and L. Sang* and Daniel Cremers},
+    year = {2024},
+    booktitle = {GCPR},
+    arxiv={2311.17634}
+    }
  {% endhighlight %}
