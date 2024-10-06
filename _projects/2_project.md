@@ -40,10 +40,47 @@ toc:
   - name: Citation
 ---
 
-<video width="100%" autoplay muted loop>
-  <source src="/assets/img/street/street.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<div class="link-block">
+  <a href=" http://arxiv.org/abs/2311.17634" target="_blank" class="icon-link">
+    <img src="https://img.icons8.com/ios-filled/50/000000/document.png" alt="Paper" width="20">
+    Paper
+  </a>
+  
+  <a href="https://github.com/minz27/erasing_the_ephemeral.git" target="_blank" class="icon-link">
+    <img src="https://img.icons8.com/ios-filled/50/000000/github.png" alt="Code" width="20">
+    Code
+  </a>
+
+  <a href="/assets/img/street/street.mp4" target="_blank" class="icon-link">
+    <img src="https://img.icons8.com/ios-filled/50/000000/video.png" alt="Video" width="20">
+    Video
+  </a>
+</div>
+
+<style>
+  .link-block {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .icon-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 16px;
+  }
+
+  .icon-link img {
+    margin-right: 5px;
+  }
+</style>
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/street/teaser.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
 
 ***Reconstructed views on Waymo.** Reconstructed scenes of a sequence from Waymo dataset. Our method can eliminate moving objects on the street.*
 
@@ -55,7 +92,7 @@ Synthesizing novel views for urban environments is crucial for tasks like autono
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/street/teaser.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/street/pipeline.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 

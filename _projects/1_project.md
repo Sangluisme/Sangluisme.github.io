@@ -40,7 +40,41 @@ toc:
   - name: Citation
 
 ---
+<div class="link-block">
+  <a href=" http://arxiv.org/abs/2311.17810" target="_blank" class="icon-link">
+    <img src="https://img.icons8.com/ios-filled/50/000000/document.png" alt="Paper" width="20">
+    Paper
+  </a>
+  
+  <a href="https://dawars.me/" target="_blank" class="icon-link">
+    <img src="https://img.icons8.com/ios-filled/50/000000/github.png" alt="Code" width="20">
+    Code
+  </a>
 
+  <a href="/assets/img/historcial/historical.mp4" target="_blank" class="icon-link">
+    <img src="https://img.icons8.com/ios-filled/50/000000/video.png" alt="Video" width="20">
+    Video
+  </a>
+</div>
+
+<style>
+  .link-block {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .icon-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 16px;
+  }
+
+  .icon-link img {
+    margin-right: 5px;
+  }
+</style>
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
