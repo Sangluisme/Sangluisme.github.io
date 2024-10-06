@@ -2,11 +2,10 @@
 layout: distill
 title: Erasing the Ephemeral
 description: Joint Camera Refinement and Transient Object Removal for Street View Synthesis
-img: assets/publication_preview/street.png
+img: assets/img/publication_preview/street.png
 importance: 2
 category: work
 giscus_comments: false
-
 featured: true
 importance: 1
 
@@ -43,8 +42,7 @@ toc:
 ---
 
 <video width="100%" autoplay muted loop>
-  <source src="./assets/street.mp4" type="video/mp4">
-Your browser does not support the video tag.
+  <source src="/assets/img/street.mp4" type="video/mp4">
 </video>
 
 ***Reconstructed views on Waymo.** Reconstructed scenes of a sequence from Waymo dataset. Our method can eliminate moving objects on the street.*
@@ -71,7 +69,7 @@ c) During training, we jointly refine camera poses and demonstrate the robustnes
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/historical/object_detection.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/street/object_detection.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -107,7 +105,7 @@ We use the logarithmic representation of the rotation matrix such that the direc
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/historical/pipeline.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/street/pipeline.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -136,18 +134,19 @@ We evaluate our method on the Waymo open dataset Waymo. We chose 6 scenes from W
 ### Novel view synthesis
 
 <video width="100%" autoplay muted loop>
-  <source src="./assets/ours_recon_07.mp4" type="video/mp4">
+  <source src="/assets/img/street/ours_recon_07.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 
 ### Trajectory extrapolation
 
 <video width="100%" autoplay muted loop>
-  <source src="./assets/ours_07_exp.mp4" type="video/mp4">
+  <source src="/assets/img/street/ours_07_exp.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 
 Our method uses point clouds as geometry priors. To prove that the network learns the actual scene geometry structure, instead of only learning the color appearance along the trained camera odometry, we extrapolate the trajectory to drift off from the training dataset. We then render views from this new trajectory which are far away from the training views. This differs from the novel view synthesis results presented in the previous paragraph where the network rendered views that were interpolated on the training trajectory.
+
 
 ## bibtex citation
 

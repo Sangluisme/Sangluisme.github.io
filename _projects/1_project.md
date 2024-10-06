@@ -4,7 +4,6 @@ title: Coloring The Past
 description: Neural Historical Buildings Reconstruction from Archival Photography
 img: assets/img/publication_preview/historical.png
 giscus_comments: false
-date: 2023-11-22
 featured: true
 importance: 1
 
