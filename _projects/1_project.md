@@ -99,7 +99,18 @@ This dataset is a rare case of having a complete photo collection covering the w
 ***Sparse and dense point cloud.** We use a dense point cloud instead of the sparse point cloud because we believe the dense point cloud provides complementary information, left is the sparse point cloud and right is the dense point cloud.*
 
 
-We build our method on top of NeusW. Our network architecture consists of two parts, an SDF net and a color prediction net. The SDF net estimates the signed distance value $$ d \in \mathbb{R} $$ and a geometric feature $$ \boldsymbol{f}\in \mathbb{R}^{f_n} $$, for $f_n$ is the dimension of the feature vector. Given point $$ \boldsymbol{x}\in\mathbb{R}^3 $$, the color prediction net outputs the rendered color $$ \boldsymbol{c} $$. In detail, given points $$ \boldsymbol{x} $$, viewing direction $$\boldsymbol{v}\in\mathbb{S}^2$$, we compute normal $$\boldsymbol{n}=\nabla \text{MLP}_{\text{SDF}}(\boldsymbol{x})$$, 
+We build our method on top of NeusW. Our network architecture consists of two parts, an SDF net and a color prediction net. The SDF net estimates the signed distance value $$ d \in \mathbb{R} $$ and a geometric feature $$ \boldsymbol{f}\in \mathbb{R}^{f_n} $$, for $f_n$ is the dimension of the feature vector. Given point $$ \boldsymbol{x}\in\mathbb{R}^3 $$, the color prediction net outputs the rendered color $$ \boldsymbol{c} $$. In detail, given points $$ \boldsymbol{x} $$, viewing direction $$\boldsymbol{v}\in\mathbb{S}^2$$, we compute normal $$\boldsymbol{n}=\nabla \text{MLP}_{\text{SDF}}(\boldsymbol{x})$$.
+
+This theme supports rendering beautiful math in inline and display modes using [MathJax 3](https://www.mathjax.org/) engine.
+You just need to surround your math expression with `$$`, like `$$ E = mc^2 $$`.
+If you leave it inside a paragraph, it will produce an inline expression, just like $$ E = mc^2 $$.
+
+To use display mode, again surround your expression with `$$` and place it as a separate paragraph.
+Here is an example:
+
+$$
+\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
+$$
 
 
 
