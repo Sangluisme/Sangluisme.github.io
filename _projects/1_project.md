@@ -98,8 +98,11 @@ This dataset is a rare case of having a complete photo collection covering the w
 
 ***Sparse and dense point cloud.** We use a dense point cloud instead of the sparse point cloud because we believe the dense point cloud provides complementary information, left is the sparse point cloud and right is the dense point cloud.*
 
+<script type="text/javascript" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 
-We build our method on top of NeusW. Our network architecture consists of two parts, an SDF net and a color prediction net. The SDF net estimates the signed distance value $$ d \in \mathbb{R} $$ and a geometric feature $$ \boldsymbol{f}\in \mathbb{R}^{f_n} $$, for $f_n$ is the dimension of the feature vector. Given point $$ \boldsymbol{x}\in\mathbb{R}^3 $$, the color prediction net outputs the rendered color $$ \boldsymbol{c} $$. In detail, given points $$ \boldsymbol{x} $$, viewing direction $$\boldsymbol{v}\in\mathbb{S}^2$$, we compute normal $$\boldsymbol{n}=\nabla \text{MLP}_{\text{SDF}}(\boldsymbol{x})$$.
+We build our method on top of NeusW. Our network architecture consists of two parts, an SDF net and a color prediction net. The SDF net estimates the signed distance value $$ d \in \mathbb{R} $$ and a geometric feature $$ \boldsymbol{f} \in \mathbb{R}^{f_n} $$, for $f_n$ is the dimension of the feature vector. Given point $$ \boldsymbol{x} \in \mathbb{R}^3 $$, the color prediction net outputs the rendered color $$ \boldsymbol{c} $$. In detail, given points $$ \boldsymbol{x} $$, viewing direction $$ \boldsymbol{v}\in\mathbb{S}^2$$, we compute normal $$\boldsymbol{n}= \nabla \text{MLP}_{\text{SDF}}(\boldsymbol{x})$$.
 
 This theme supports rendering beautiful math in inline and display modes using [MathJax 3](https://www.mathjax.org/) engine.
 You just need to surround your math expression with `$$`, like `$$ E = mc^2 $$`.
@@ -118,7 +121,7 @@ $$
 {% highlight javascript %}
     @inproceedings{komorowicz2023coloring,
     title = {Coloring the Past: Neural Historical Buildings Reconstruction from Archival Photography},
-    author = {D Komorowicz and L Sang and F Maiwald and D Cremers},
+    author = {D. Komorowicz and L. Sang and F. Maiwald and D. Cremers},
     booktitle = {ECCVW},
     year = {2024},
     }
