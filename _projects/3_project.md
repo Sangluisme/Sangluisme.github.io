@@ -59,6 +59,44 @@ toc:
     </div>
 </div>
 
+---
+<div class="link-block">
+  <a href="http://arxiv.org/abs/2306.02099" target="_blank" class="icon-link">
+    <img src="https://img.icons8.com/ios-filled/50/000000/arxiv.png" alt="arXiv" width="20">
+    arXiv
+  </a>
+  
+  <a href="https://github.com/Sangluisme" target="_blank" class="icon-link">
+    <img src="https://img.icons8.com/ios-filled/50/000000/github.png" alt="Code" width="20">
+    Code
+  </a>
+
+  <a href="https://your-journal-link.com" target="_blank" class="icon-link">
+    <img src="https://img.icons8.com/ios-filled/50/000000/document.png" alt="Paper" width="20">
+    Paper
+  </a>
+</div>
+
+<style>
+  .link-block {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .icon-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 16px;
+  }
+
+  .icon-link img {
+    margin-right: 5px;
+  }
+</style>
+---
+
 ## Abstract
 
 Neural implicits have become popular for representing surfaces because they offer an adaptive resolution and support arbitrary topologies. While previous works rely on ground truth point clouds, they often ignore the effect of input quality and sampling methods during reconstructing. In this paper, we introduce a sampling method with an uncertainty-augmented surface implicit representation that employs a sampling technique that considers the geometric characteristics of inputs. To this end, we introduce a strategy that efficiently computes differentiable geometric features, namely, mean curvatures, to augment the sampling phase during the training period. The uncertainty augmentation offers insights into the occupancy and reliability of the output signed distance value, thereby expanding representation capabilities into open surfaces. Finally, we demonstrate that our method leads to state-of-the-art reconstructions on both synthetic and real-world data.
