@@ -53,7 +53,7 @@ toc:
     Code
   </a>
 
-  <a href="assests/img/curvature/poster.pdf" target="_blank" class="icon-link">
+  <a href="/assests/img/curvature/poster.pdf" target="_blank" class="icon-link">
     <img src="https://img.icons8.com/ios-filled/50/000000/video.png" alt="Video" width="20">
     Video
   </a>
