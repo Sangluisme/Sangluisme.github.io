@@ -29,7 +29,7 @@ toc:
     #   - name: Example Child Subsection 1
     #   - name: Example Child Subsection 2
   - name: Overview
-    subsection:
+    subsections:
         - name: Moving Object Detection
         - name: Pose Refinement
         - name: Self-supervised Training
