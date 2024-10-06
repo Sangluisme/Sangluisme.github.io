@@ -144,7 +144,7 @@ We use the logarithmic representation of the rotation matrix such that the direc
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/street/pipeline.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
-</div>
+</div> 
 <div class="caption">
 <strong>Pipeline</storng> The pipeline of our method.
 </div>
