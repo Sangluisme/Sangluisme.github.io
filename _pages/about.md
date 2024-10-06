@@ -10,7 +10,7 @@ profile:
   image: prof_pic.jpg
   image_circular: true # crops the image to make it circular
   more_info: >
-  <p>I'm currently looking for internship in both academia and industry. Feel free to contact me.</P>
+  
     
 
 news: true # includes a list of news items

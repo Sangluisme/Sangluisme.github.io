@@ -53,7 +53,7 @@ toc:
     Code
   </a>
 
-  <a href="/assets/img/historcial/historical.mp4" target="_blank" class="icon-link">
+  <a href="/assets/img/high_rgbd/1332-wacv.mp4" target="_blank" class="icon-link">
     <img src="https://img.icons8.com/ios-filled/50/000000/video.png" alt="Video" width="20">
     Video
   </a>
@@ -107,7 +107,11 @@ c) It is a method that deals with natural and point light source scenarios in an
 
 ## Voxel center vs. Surface point
 
-![voxel center vs surface point](/assets/img/high_rgbd/voxel_center.png)
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/high_rgbd/voxel_center.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
 
 The key idea of the proposed method is describing the explicit surface under an implicit representation, i.e., under a volumetric cube. To perform all the operations on the actual surface, we must find the corresponding surface point to each voxel. To combine the advantage of surface point representation with volumetric representation, gradient-SDF stores the signed distance $\psi^j$ for each voxel $\boldsymbol{v}^j$ for $j\in\mathcal{V}$, together with the distance gradient $\boldsymbol{g}^j$ of this voxel. It allows us to easily compute the surface point $\boldsymbol{x}^j$ by moving along the gradient direction $\boldsymbol{g}^j$ with the voxel distance $\psi^j$ 
 
@@ -138,11 +142,22 @@ where $\Psi^s$ is the light source intensity, $\boldsymbol{n}^s$ is the principa
 
 ## Results
 
-![Reconstruction Results](/assets/img/high_rgbd/reconstruction.png)
-***Reconstruction results.** Reconstrution results compare with other methods under Natural light conditions.*
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/high_rgbd/reconstruction.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+<strong>Reconstruction results</storng> Reconstrution results compare with other methods under Natural light conditions.
+</div>
 
-![Point light source](/assets/img/high_rgbd/point_light.png)
-***Reconstruction results.** Reconstrution results under point light source conditions, uncalibrated.*
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/high_rgbd/point_light.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<strong>Reconstruction results</storng> Reconstrution results under point light source conditions, uncalibrated.
+</div>
 
 
 
