@@ -2,6 +2,7 @@
 layout: about
 title: about
 permalink: /
+subtitle: PhD student at the Technical University of Munich
 # subtitle: <a href='#'>Affiliations</a>. Munich. Contacts. Motto. Etc.
 
 profile:
@@ -9,6 +10,7 @@ profile:
   image: prof_pic.jpg
   image_circular: true # crops the image to make it circular
   more_info: >
+  <p>I'm currently looking for internship in both academia and industry. Feel free to contact me.</P>
     
 
 news: true # includes a list of news items
@@ -20,10 +22,9 @@ social: false # includes social icons at the bottom of the page
 > -John von Neumann
 
 
+I am a PhD student at the [Computer Vision Group](https://cvg.cit.tum.de/publications) at [TU Munich](https://tum.de) under the guidance of [Prof. Cremers](https://scholar.google.com/citations?user=cXQciMEAAAAJ&hl=en).
+Before that, I received Master degree in Mathematics from [TU Munich](https://www.math.cit.tum.de/math/home/) and Bachelor degree in applied mathematics from [Tongji University](https://www.tongji.edu.cn/).
 
-I am a PhD student at the Computer Vision Group at TU Munich under the guidance of [Prof. Cremers](https://scholar.google.com/citations?user=cXQciMEAAAAJ&hl=en).
-I mainly work on 3D & 4D reconstruction.
+I am passionate about applying elegant mathematical theories to address practical, real-world challenges during [my research](https://sangluisme.github.io/publications/). My research interests include 3D geometry representation, photometric stereo and BRDF modeling, 3D & 4D reconstruction.
 
-I am passionate about applying elegant mathematical theories to address practical, real-world challenges during [my research](https://sangluisme.github.io/publications/).
 
-This is an overview over projects I was personally involved in. Check out more awesome work from our [CVG group](https://cvg.cit.tum.de/publications).
