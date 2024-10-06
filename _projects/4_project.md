@@ -161,7 +161,8 @@ where $\Psi^s$ is the light source intensity, $\boldsymbol{n}^s$ is the principa
 
 
 
-## bibtex citation
+## Citation
+
 {% highlight javascript %}
     @inproceedings{sang2023high,
     author = {L Sang and B Haefner and X Zuo and D Cremers},
@@ -170,12 +171,6 @@ where $\Psi^s$ is the light source intensity, $\boldsymbol{n}^s$ is the principa
     month = {January},
     address = {Hawaii, USA},
     year = {2023},
-    eprint = {2210.12202},
-    eprinttype = {arXiv},
-    eprintclass = {cs.CV},
-    copyright = {Creative Commons Attribution Non Commercial No Derivatives 4.0 International},
-    titleurl = {sang2023high.png},
     award = {Spotlight Presentation},
-    keywords = {3d-reconstruction,rgb-d,photometry},
     }
  {% endhighlight %}

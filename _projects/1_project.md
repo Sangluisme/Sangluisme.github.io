@@ -14,7 +14,7 @@ authors:
     affiliations:
       name: TUM, Jena university
   - name: Lu Sang*
-    url: "https://sangluisme.github.io"
+    url:  "https://sangluisme.github.io"
     affiliations:
       name: TUM, MCML
   - name: Ferdinand Maiwald
@@ -140,7 +140,8 @@ This dataset is a rare case of having a complete photo collection covering the w
 We build our method on top of NeusW. Our network architecture consists of two parts, an SDF net and a color prediction net. The SDF net estimates the signed distance value $$ d \in \mathbb{R} $$ and a geometric feature $$ \boldsymbol{f} \in \mathbb{R}^{f_n} $$, for $f_n$ is the dimension of the feature vector. Given point $$ \boldsymbol{x} \in \mathbb{R}^3 $$, the color prediction net outputs the rendered color $$ \boldsymbol{c} $$. In detail, given points $$ \boldsymbol{x} $$, viewing direction $$ \boldsymbol{v}\in\mathbb{S}^2$$, we compute normal $$\boldsymbol{n}= \nabla \text{MLP}_{\text{SDF}}(\boldsymbol{x})$$.
 
 
-## bibtex citation
+## Citation
+
 {% highlight javascript %}
     @inproceedings{komorowicz2023coloring,
     title = {Coloring the Past: Neural Historical Buildings Reconstruction from Archival Photography},

@@ -186,14 +186,14 @@ Our method uses point clouds as geometry priors. To prove that the network learn
 
 
 
-## bibtex citation
+## Citation
 
 {% highlight javascript %}
     @inproceedings{deka2023erasing,
-    title = {Erasing the Ephemeral: Joint Camera Refinement and Transient Object Removal for Street View Synthesis},
-    author = {MS. Deka* and L. Sang* and Daniel Cremers},
-    year = {2024},
-    booktitle = {GCPR},
-    arxiv={2311.17634}
+        title = {Erasing the Ephemeral: Joint Camera Refinement and Transient Object Removal for Street View Synthesis},
+        author = {MS. Deka* and L. Sang* and Daniel Cremers},
+        year = {2024},
+        booktitle = {GCPR},
+        arxiv={2311.17634}
     }
  {% endhighlight %}
