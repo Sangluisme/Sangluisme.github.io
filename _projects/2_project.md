@@ -96,7 +96,7 @@ Synthesizing novel views for urban environments is crucial for tasks like autono
     </div>
 </div>
 <div class="caption">
-    <strong>Pipeline of our method<strong>
+    <strong>Pipeline</strong> The figure is the pipeline of our method.
 </div>
 
 a) We incorporate novel view synthesis with dynamic object erasing which removes artifacts created by inconsistent frames in urban scenes. 
