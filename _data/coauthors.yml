@@ -50,16 +50,16 @@
   - firstname: ["Marvin", "M. Eisenberger"]
     url: https://cvg.cit.tum.de/members/eisenber
 
-"xingxingzuo":
+"zuo":
   - firstname: ["Xingxing"]
     url: https://xingxingzuo.github.io/
 
-"davidkomorowicz":
+"komorowicz":
   - firstname: ["David Komorowicz", "David"]
     url: https://github.com/Dawars
 
 
-"ferdinandmaiwald":
+"maiwald":
   - firstname: ["Ferdinand Maiwald", "F. Maiwald", "Ferdinand"]
     url: https://tu-dresden.de/bu/umwelt/geo/ipf/photogrammetrie/die-professur/beschaeftigte/Ferdinand_Maiwald
 
@@ -72,6 +72,6 @@
   - firstname: ["Maolin", "M. Gao"]
     url: https://maolingao.github.io/
 
-"ahbishecksaroha":
+"saroha":
   - firstname: ["Ahbishek", "Ahbishek Soraha"]
     url: https://cvg.cit.tum.de/members/saroha
