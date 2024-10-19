@@ -63,15 +63,15 @@
   - firstname: ["Ferdinand Maiwald", "F. Maiwald", "Ferdinand"]
     url: https://tu-dresden.de/bu/umwelt/geo/ipf/photogrammetrie/die-professur/beschaeftigte/Ferdinand_Maiwald
 
-"dongliangcao": 
+"cao": 
   - firstname: ["Dongliang", "D. Cao"]
     url: https://dongliangcao.github.io/
 
 
-"maolingao":
+"gao":
   - firstname: ["Maolin", "M. Gao"]
     url: https://maolingao.github.io/
 
 "saroha":
-  - firstname: ["Ahbishek", "Ahbishek Soraha"]
+  - firstname: ["Abhishek", "Abhishek Saroha"]
     url: https://cvg.cit.tum.de/members/saroha
