@@ -48,7 +48,7 @@ toc:
     Paper
   </a>
   
-  <a href="https://github.com/Sangluisme" target="_blank" class="icon-link">
+  <a href="https://github.com/Sangluisme/curverture-sample-uncertainty-aware-sdf" target="_blank" class="icon-link">
     <img src="https://img.icons8.com/ios-filled/50/000000/github.png" alt="Code" width="20">
     Code
   </a>
