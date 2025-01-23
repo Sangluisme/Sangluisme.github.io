@@ -8,6 +8,7 @@
  preview={inferring.png},
  bibtex_show={true},
  pdf={https://cvg.cit.tum.de/_media/spezial/bib/sang2020wacv.pdf},
+ code={https://github.com/Sangluisme/MultiviewLightEnhancedDepthSR},
  abstract={A novel approach towards depth map super-resolution using multi-view uncalibrated photometric stereo is presented. Practically, an LED light source is attached to a commodity RGB-D sensor and is used to capture objects
 from multiple viewpoints with unknown motion. This nonstatic camera-to-object setup is described with a nonconvex variational approach such that no calibration on lighting or camera motion is required due to the formulation of an end-to-end joint optimization problem. Solving the proposed variational model results in high resolution depth, reflectance and camera pose estimates, as we show on challenging synthetic and real-world datasets.}
  }
@@ -23,6 +24,7 @@ from multiple viewpoints with unknown motion. This nonstatic camera-to-object se
  selected={true},
  bibtex_show={true},
  arxiv={2111.13652},
+ code={https://github.com/c-sommer/gradient-sdf},
  abstract={Neural implicits have become popular for representing surfaces because they offer an adaptive resolution and support arbitrary topologies. While previous works rely on ground truth point clouds, they often ignore the effect of input quality and sampling methods during reconstructing. In this paper, we introduce a sampling method with an uncertainty-augmented surface implicit representation that employs a sampling technique that considers the geometric characteristics of inputs. To this end, we introduce a strategy that efficiently computes differentiable geometric features, namely, mean curvatures, to augment the sampling phase during the training period. The uncertainty augmentation offers insights into the occupancy and reliability of the output signed distance value, thereby expanding representation capabilities into open surfaces. Finally, we demonstrate that our method leads to state-of-the-art reconstructions on both synthetic and real-world data.}
 }
 
@@ -37,6 +39,7 @@ from multiple viewpoints with unknown motion. This nonstatic camera-to-object se
  selected={true},
  bibtex_show={true},
  arxiv={2210.12202},
+ code={https://github.com/Sangluisme/PSgradientSDF},
  abstract={Fine-detailed reconstructions are in high demand in many applications. However, most of the existing RGB-D reconstruction methods rely on pre-calculated accurate camera poses to recover the detailed surface geometry, where the representation of a surface needs to be adapted when optimizing different quantities. In this paper, we present a novel multi-view RGB-D based reconstruction method that tackles camera pose, lighting, albedo, and surface normal estimation via the utilization of a gradient signed distance field gradient-SDF. The proposed method formulates the image rendering process using specific physically-based models and optimizes the surface's quantities on the actual surface using its volumetric representation, as opposed to other works which estimate surface quantities only near the actual surface. To validate our method, we investigate two physically-based image formation models for natural light and point light source applications. The experimental results on synthetic and real-world datasets demonstrate that the proposed method can recover high-quality geometry of the surface more faithfully than the state-of-the-art and further improves the accuracy of estimated camera poses.},
  website={https://sangluisme.github.io/projects/4_project/}
 }
@@ -51,6 +54,7 @@ from multiple viewpoints with unknown motion. This nonstatic camera-to-object se
  preview={curvature.png},
  bibtex_show={true},
  arxiv={2306.02099},
+ code={https://github.com/Sangluisme/curverture-sample-uncertainty-aware-sdf},
  abstract={Neural implicits have become popular for representing surfaces because they offer an adaptive resolution and support arbitrary topologies. While previous works rely on ground truth point clouds, they often ignore the effect of input quality and sampling methods during reconstructing. In this paper, we introduce a sampling method with an uncertainty-augmented surface implicit representation that employs a sampling technique that considers the geometric characteristics of inputs. To this end, we introduce a strategy that efficiently computes differentiable geometric features, namely, mean curvatures, to augment the sampling phase during the training period. The uncertainty augmentation offers insights into the occupancy and reliability of the output signed distance value, thereby expanding representation capabilities into open surfaces. Finally, we demonstrate that our method leads to state-of-the-art reconstructions on both synthetic and real-world data.},
  website={https://sangluisme.github.io/projects/3_project/}
 }
@@ -93,6 +97,7 @@ bibtex_show={true},
  selected={true},
  bibtex_show={true},
  arxiv={2407.17058},
+ code={https://github.com/Linusnie/diffcd},
  abstract={Fitting neural implicit surfaces to point clouds is typically done by encouraging the network output to equal zero on the point cloud. Yet, since the underlying shape metric is not symmetric, previous methods are susceptible to spurious surfaces. We theoretically analyze the predominant approach for dealing with spurious surfaces, and show that it is equivalent to regularizing the surface area, leading to over-smoothing. We propose a novel loss function corresponding to the symmetric Chamfer distance to address these shortcomings. It assures both that the points are near the surface and that the surface is near the points. Our approach reliably recovers a high level of shape detail and eliminates spurious surfaces without the need for additional regularization. To make our approach more practical, we further propose an efficient method for uniformly sampling point batches from the implicit surface.}
 }
 
