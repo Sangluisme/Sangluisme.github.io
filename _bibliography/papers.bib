@@ -50,7 +50,6 @@ from multiple viewpoints with unknown motion. This nonstatic camera-to-object se
  author = {L. Sang and Abhishek Saroha and Maolin Gao and Daniel Cremers},
  booktitle = {ECCVW},
  year = {2024},
- selected={true},
  preview={curvature.png},
  bibtex_show={true},
  arxiv={2306.02099},
@@ -63,7 +62,6 @@ from multiple viewpoints with unknown motion. This nonstatic camera-to-object se
  title = {Erasing the Ephemeral: Joint Camera Refinement and Transient Object Removal for Street View Synthesis},
  author = {MS. Deka* and L. Sang* and Daniel Cremers},
  year = {2024},
- selected={true},
  abbr={GCPR 2024},
  booktitle = {GCPR},
  preview={street.png},
@@ -78,7 +76,6 @@ from multiple viewpoints with unknown motion. This nonstatic camera-to-object se
  author = {David Komorowicz* and Lu Sang* and Ferdinand Maiwald and Daniel Cremers},
  abbr={ECCVW 2024},
  year = {2024},
- selected={true},
  booktitle = {ECCVW},
 preview={historical.png},
 bibtex_show={true},
@@ -101,3 +98,16 @@ bibtex_show={true},
  abstract={Fitting neural implicit surfaces to point clouds is typically done by encouraging the network output to equal zero on the point cloud. Yet, since the underlying shape metric is not symmetric, previous methods are susceptible to spurious surfaces. We theoretically analyze the predominant approach for dealing with spurious surfaces, and show that it is equivalent to regularizing the surface area, leading to over-smoothing. We propose a novel loss function corresponding to the symmetric Chamfer distance to address these shortcomings. It assures both that the points are near the surface and that the surface is near the points. Our approach reliably recovers a high level of shape detail and eliminates spurious surfaces without the need for additional regularization. To make our approach more practical, we further propose an efficient method for uniformly sampling point batches from the implicit surface.}
 }
 
+@inproceedings{sang2025implicit,
+      title={Implicit Neural Surface Deformation with Explicit Velocity Fields}, 
+      author={Lu Sang and Zehranaz Canfes and Dongliang Cao and Florian Bernard and Daniel Cremers},
+      year={2025},
+      abbr={ICLR 2025},
+      booktitle = {ICLR},
+      preview={implicit.png},
+      selected={true},
+      bibtex_show={true},
+      arxiv={2501.14038},
+      code={https://github.com/Sangluisme/Implicit-surf-Deformation}, 
+      abstract={In this work, we introduce the first unsupervised method that simultaneously predicts time-varying neural implicit surfaces and deformations between pairs of point clouds. We propose to model the point movement using an explicit velocity field and directly deform a time-varying implicit field using the modified level-set equation. This equation utilizes an iso-surface evolution with Eikonal constraints in a compact formulation, ensuring the integrity of the signed distance field. By applying a smooth, volume-preserving constraint to the velocity field, our method successfully recovers physically plausible intermediate shapes. Our method is able to handle both rigid and non-rigid deformations without any intermediate shape supervision. Our experimental results demonstrate that our method significantly outperforms existing works, delivering superior results in both quality and efficiency. }
+}
