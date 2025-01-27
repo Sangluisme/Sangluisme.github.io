@@ -6,11 +6,11 @@
     "email": "sangluisme@gmail.com",
     "summary": "I'm a PhD student at Technical University of Munich, supervised by Prof. Daniel Cremers.",
     "location": {
-      "address": "2712 Broadway St",
-      "postalCode": "CA 94115",
-      "city": "San Francisco",
-      "countryCode": "US",
-      "region": "California"
+      "address": "",
+      "postalCode": "",
+      "city": "Munich",
+      "countryCode": "Germany",
+      "region": "Bayern"
     },
     "profiles": [
       {
@@ -21,7 +21,7 @@
       {
         "network": "Github",
         "username": "Sangluisme",
-        "url": "https://x.com/Lu_Sang__"
+        "url": "https://github.com/Sangluisme"
       }
     ]
   },
@@ -47,7 +47,7 @@
     {
       "institution": "Tongji University, Shanghai, China",
       "location": "Shanghai, China",
-      "url": "https://en.tongji.edu.cn/p/",
+      "url": "https://en.tongji.edu.cn/",
       "area": "Mathematics",
       "studyType": "Bachelor of science",
       "startDate": "2011-10",
@@ -59,7 +59,7 @@
       "name": "Inferring Super-Resolution Depth from a Moving Light-Source Enhanced RGB-D Sensor: A Variational Approach",
       "publisher": "WACV",
       "releaseDate": "2020",
-      "url": "https://cvg.cit.tum.de/_media/spezial/bib/sang2020wacv.pdf"
+      "url": "https://arxiv.org/abs/2210.12202"
     },
     {
       "name": "Gradient-SDF: A Semi-Implicit Surface Representation for 3D Reconstruction",
