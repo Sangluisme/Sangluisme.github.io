@@ -56,6 +56,12 @@
   ],
   "publications": [
     {
+      "name": "Implicit Neural Surface Deformation with Explicit Velocity Fields",
+      "publisher": "ICLR",
+      "releaseDate": "2025",
+      "url": "https://arxiv.org/abs/2501.14038"
+    },
+    {
       "name": "Inferring Super-Resolution Depth from a Moving Light-Source Enhanced RGB-D Sensor: A Variational Approach",
       "publisher": "WACV",
       "releaseDate": "2020",
