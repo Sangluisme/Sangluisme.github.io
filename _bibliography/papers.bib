@@ -1,4 +1,18 @@
 
+@inproceedings{sang20254deform,
+ title = {4Deform: Neural Surface Deformation for Robust Shape Interpolation},
+ author = {Lu Sang and Zehranaz Canfes and Dongliang Cao and Riccardo Marin and Florian Bernard and Daniel Cremers},
+ year = {2025},
+ booktitle = {CVPR},
+ abbr={CVPR 25},
+ preview={4deform.png},
+ selected={true},
+ bibtex_show={true},
+ arxiv={2502.20208},
+ abstract={Generating realistic intermediate shapes between non-rigidly deformed shapes is a challenging task in computer vision, especially with unstructured data (e.g., point clouds) where temporal consistency across frames is lacking, and topologies are changing. Most interpolation methods are designed for structured data (i.e., meshes) and do not apply to real-world point clouds. In contrast, our approach, 4Deform, leverages neural implicit representation (NIR) to enable free topology changing shape deformation. Unlike previous mesh-based methods that learn vertex-based deformation fields, our method learns a continuous velocity field in Euclidean space. Thus, it is suitable for less structured data such as point clouds. Additionally, our method does not require intermediate-shape supervision during training; instead, we incorporate physical and geometrical constraints to regularize the velocity field. We reconstruct intermediate surfaces using a modified level-set equation, directly linking our NIR with the velocity field. Experiments show that our method significantly outperforms previous NIR approaches across various scenarios (e.g., noisy, partial, topology-changing, non-isometric shapes) and, for the first time, enables new applications like 4D Kinect sequence upsampling and real-world high-resolution mesh deformation.},
+ website={https://4deform.github.io/}
+}
+
 
 @inproceedings{sang2025implicit,
       title={Implicit Neural Surface Deformation with Explicit Velocity Fields}, 
@@ -114,6 +128,8 @@ bibtex_show={true},
  abstract={A novel approach towards depth map super-resolution using multi-view uncalibrated photometric stereo is presented. Practically, an LED light source is attached to a commodity RGB-D sensor and is used to capture objects
 from multiple viewpoints with unknown motion. This nonstatic camera-to-object setup is described with a nonconvex variational approach such that no calibration on lighting or camera motion is required due to the formulation of an end-to-end joint optimization problem. Solving the proposed variational model results in high resolution depth, reflectance and camera pose estimates, as we show on challenging synthetic and real-world datasets.}
  }
+
+
 
 
 
