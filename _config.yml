@@ -305,7 +305,7 @@ display_categories: ["external-services"] # these categories will be displayed o
 
 scholar:
   last_name: [Sang]
-  first_name: [Lu, L.]
+  first_name: [Lu]
 
   style: apa
   locale: en
