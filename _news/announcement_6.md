@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Our paper **TwoSquared:4D Reconstruction from 2D Image Pairs** is accepted by 3DV 2025 as oral. :blush: :sparkles: :smile:
+Our paper **TwoSquared:4D Reconstruction from 2D Image Pairs** is accepted by 3DV 2026 as oral. :blush: :sparkles: :smile:
