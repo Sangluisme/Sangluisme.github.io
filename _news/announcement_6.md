@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2025-07-01 07:59:00-0400
+date: 2025-11-11 07:59:00-0400
 inline: true
 related_posts: false
 ---
 
-One paper was accepted to SGP!
+Our paper **TwoSquared:4D Reconstruction from 2D Image Pairs** is accepted by 3DV 2025 as oral. :blush: :sparkles: :smile:
